@@ -1,11 +1,6 @@
 export function between(min: number, max: number, val: number) {
-  while (val < min) {
-    val += max - min;
-  }
-  while (max <= val) {
-    val -= max - min;
-  }
-  return val;
+  const diff = max - min;
+  return (val + diff) % diff + min;
 }
 
 export function angleToQuadrant(angle: number) {
