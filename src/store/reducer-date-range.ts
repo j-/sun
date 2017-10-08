@@ -1,14 +1,16 @@
 import { Reducer } from 'redux';
-import { isActionSetDateRange } from './actions';
+import { isActionSetDateRange, isActionSetCurrentTime } from './actions';
 
 export interface ReducerState {
 	startDate: Date | null;
 	endDate: Date | null;
+	currentTime: Date | null;
 }
 
 const DEFAULT_STATE: ReducerState = {
 	startDate: null,
 	endDate: null,
+	currentTime: null,
 };
 
 const reducer: Reducer<ReducerState> = (state = DEFAULT_STATE, action) => {
@@ -17,6 +19,12 @@ const reducer: Reducer<ReducerState> = (state = DEFAULT_STATE, action) => {
 			...state,
 			startDate: action.data.startDate,
 			endDate: action.data.endDate,
+		};
+	}
+	if (isActionSetCurrentTime(action)) {
+		return {
+			...state,
+			currentTime: action.data.date,
 		};
 	}
 
@@ -31,11 +39,19 @@ export const getEndDate = (state: ReducerState): Date | null => (
 	state.endDate
 );
 
+export const getCurrentTime = (state: ReducerState): Date | null => (
+	state.currentTime
+);
+
 export const hasStartDate = (state: ReducerState): boolean => (
 	getStartDate(state) !== null
 );
 
 export const hasEndDate = (state: ReducerState): boolean => (
+	getEndDate(state) !== null
+);
+
+export const hasCurrentTime = (state: ReducerState): boolean => (
 	getEndDate(state) !== null
 );
 

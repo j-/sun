@@ -73,3 +73,21 @@ export const setDateRange = (startDate: Date, endDate: Date): ActionSetDateRange
 		endDate,
 	},
 });
+
+export interface ActionSetCurrentTime {
+	type: 'SetCurrentTime';
+	data: {
+		date: Date;
+	};
+}
+
+export const isActionSetCurrentTime = (action: Action): action is ActionSetCurrentTime => (
+	action.type === 'SetCurrentTime'
+);
+
+export const setCurrentTime = (date: Date): ActionSetCurrentTime => ({
+	type: 'SetCurrentTime',
+	data: {
+		date,
+	},
+});

@@ -15,6 +15,7 @@ export interface Props {
 	hasDateRange: boolean;
 	startDate: Date;
 	endDate: Date;
+	currentTime?: Date;
 	interval: number;
 	getAltitude: (date: Date) => number;
 }
@@ -44,6 +45,18 @@ export default class SunChart extends React.Component<Props> {
 			return null;
 		}
 
+		const { startDate, endDate, currentTime, interval } = this.props;
+		let currentTimeReference;
+
+		if (currentTime && currentTime >= startDate && currentTime <= endDate) {
+			let x = currentTime.getHours();
+			// Add minutes and round to the nearest interval
+			x += (Math.round(currentTime.getMinutes() / (interval / 60000)) * (interval / 60000)) / 60;
+			currentTimeReference = (
+				<ReferenceLine x={x} stroke="#800" label="Current time" />
+			);
+		}
+
 		return (
 			<div className="SunChart">
 				<LineChart width={1000} height={300} data={this.buildData()}>
@@ -55,7 +68,7 @@ export default class SunChart extends React.Component<Props> {
 					<Line type="monotone" dataKey={ALTITUDE_LABEL} stroke="#8884d8" dot={false} />
 					<ReferenceLine y={0} stroke="#aaa" label="Local horizon" />
 					<ReferenceLine y={50} stroke="#ccc" label="UVB penetration angle" />
-					<ReferenceLine x={11} stroke="#800" label="Current time" />
+					{currentTimeReference}
 				</LineChart>
 			</div>
 		);

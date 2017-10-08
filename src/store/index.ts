@@ -70,3 +70,7 @@ export const hasEndDate = (state: ReducerState): boolean => (
 export const hasDateRange = (state: ReducerState): boolean => (
 	dateRange.hasDateRange(state.dateRange)
 );
+
+export const getCurrentTime = (state: ReducerState): Date | null => (
+	dateRange.getCurrentTime(state.dateRange)
+);
