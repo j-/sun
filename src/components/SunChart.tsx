@@ -23,6 +23,10 @@ export interface Props {
 const LOCAL_HOUR_LABEL = 'Local hour';
 const ALTITUDE_LABEL = 'Altitude';
 
+const tickFormatter = (value: number): string => (
+	(Math.floor(value % 12) || 12) + (value >= 12 ? 'pm' : 'am')
+);
+
 /** Format like clock time */
 const labelFormatter = (value: number): string => {
 	const hours = Math.floor(value % 12) || 12;
@@ -30,8 +34,8 @@ const labelFormatter = (value: number): string => {
 	if (minutes < 10) {
 		minutes = '0' + minutes;
 	}
-	const ampm = value >= 12 ? 'PM' : 'AM';
-	return `${hours}:${minutes} ${ampm}`;
+	const ampm = value >= 12 ? 'pm' : 'am';
+	return `${hours}:${minutes}${ampm}`;
 };
 
 /** Round to 1 decimal place and add degrees symbol */
@@ -61,7 +65,7 @@ export default class SunChart extends React.Component<Props> {
 			<div className="SunChart">
 				<div className="SunChart-inner">
 					<LineChart width={1000} height={300} data={this.buildData()}>
-						<XAxis dataKey={LOCAL_HOUR_LABEL} ticks={this.buildTicks()} />
+						<XAxis dataKey={LOCAL_HOUR_LABEL} ticks={this.buildTicks()} tickFormatter={tickFormatter} />
 						<YAxis width={30} />
 						<CartesianGrid strokeDasharray="3 3" />
 						<Tooltip formatter={valueFormatter} labelFormatter={labelFormatter} />
