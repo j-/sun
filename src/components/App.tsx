@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Coords from '../containers/Coords';
-import FetchCoordsButton from '../containers/FetchCoordsButton';
-import FetchCoordsState from '../containers/FetchCoordsState';
+import FetchCoords from './FetchCoords';
 import SunChart from '../containers/SunChart';
 
 const App = () => (
@@ -11,8 +10,7 @@ const App = () => (
 		<section>
 			<h2>Coordinates</h2>
 			<Coords />
-			<FetchCoordsButton />
-			<FetchCoordsState />
+			<FetchCoords />
 		</section>
 
 		<section>
