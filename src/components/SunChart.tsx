@@ -69,10 +69,10 @@ export default class SunChart extends React.Component<Props> {
 						<YAxis width={30} tickFormatter={degreeFormatter} />
 						<CartesianGrid strokeDasharray="3 3" />
 						<Tooltip formatter={degreeFormatter} labelFormatter={labelFormatter} />
-						<Line type="monotone" dataKey={ALTITUDE_LABEL} stroke="#8884d8" dot={false} />
 						<ReferenceLine y={0} stroke="#aaa" label="Local horizon" />
 						<ReferenceLine y={50} stroke="#ccc" label="UVB penetration angle" />
 						{currentTimeReference}
+						<Line type="monotone" dataKey={ALTITUDE_LABEL} stroke="#8884d8" dot={false} />
 					</LineChart>
 				</div>
 			</div>
