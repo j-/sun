@@ -2,6 +2,7 @@ import * as React from 'react';
 import Coords from '../containers/Coords';
 import FetchCoords from './FetchCoords';
 import SunChart from '../containers/SunChart';
+import './App.css';
 
 const App = () => (
 	<div className="App">
