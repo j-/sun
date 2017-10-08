@@ -2,11 +2,7 @@
   "name": "sun",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-scripts-ts": "2.7.0"
-  },
+  "dependencies": {},
   "scripts": {
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
@@ -20,6 +16,9 @@
     "@types/react-dom": "^16.0.1",
     "@types/react-redux": "^5.0.10",
     "react-redux": "^5.0.6",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-scripts-ts": "2.7.0"
   }
 }
