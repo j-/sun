@@ -20,5 +20,29 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-scripts-ts": "2.7.0"
-  }
+  },
+  "description": "Calculate the position of the sun",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/j-/sun.git"
+  },
+  "keywords": [
+    "sun",
+    "angle",
+    "position",
+    "declination",
+    "altitude",
+    "azimuth",
+    "coordinates",
+    "latitude",
+    "longitude",
+    "geolocation"
+  ],
+  "author": "Jamie Hoeks <j@skeoh.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/j-/sun/issues"
+  },
+  "homepage": "https://skeoh.com/sun/"
 }
