@@ -13,32 +13,8 @@ export const getLatitude = (state: ReducerState): number => (
 	coords.getLatitude(state.coords)
 );
 
-export const formatLatitude = (
-	state: ReducerState,
-	includeMinutes: boolean = true,
-	includeSeconds: boolean = false,
-): string => (
-	coords.formatLatitude(state.coords, includeMinutes, includeSeconds)
-);
-
 export const getLongitude = (state: ReducerState): number => (
 	coords.getLongitude(state.coords)
-);
-
-export const formatLongitude = (
-	state: ReducerState,
-	includeMinutes: boolean = true,
-	includeSeconds: boolean = false,
-): string => (
-	coords.formatLongitude(state.coords, includeMinutes, includeSeconds)
-);
-
-export const formatCoordinates = (
-	state: ReducerState,
-	includeMinutes: boolean = true,
-	includeSeconds: boolean = false,
-): string => (
-	coords.formatCoordinates(state.coords, includeMinutes, includeSeconds)
 );
 
 export const isNorth = (state: ReducerState): boolean => (

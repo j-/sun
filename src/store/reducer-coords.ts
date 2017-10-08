@@ -23,62 +23,12 @@ const reducer: Reducer<ReducerState> = (state = DEFAULT_STATE, action) => {
 	return state;
 };
 
-const formatDegrees = (
-	degrees: number,
-	includeMinutes: boolean = true,
-	includeSeconds: boolean = false,
-): string => {
-	if (!includeMinutes) {
-		return `${Math.round(degrees)}\xb0`;
-	} else if (!includeSeconds) {
-		const minutes = (degrees % 1) * 60;
-		return `${Math.floor(degrees)}\xb0 ${Math.round(minutes)}'`;
-	} else {
-		const minutes = (degrees % 1) * 60;
-		const seconds = ((degrees * 60) % 1) * 60;
-		return `${Math.floor(degrees)}\xb0 ${Math.floor(minutes)}' ${Math.round(seconds)}"`;
-	}
-};
-
 export const getLatitude = (state: ReducerState): number => (
 	state.latitude
 );
 
-export const formatLatitude = (
-	state: ReducerState,
-	includeMinutes: boolean = true,
-	includeSeconds: boolean = false,
-): string => (
-	formatDegrees(
-		getLatitude(state),
-		includeMinutes,
-		includeSeconds,
-	) + ' ' + (isNorth(state) ? 'N' : 'S')
-);
-
 export const getLongitude = (state: ReducerState): number => (
 	state.longitude
-);
-
-export const formatLongitude = (
-	state: ReducerState,
-	includeMinutes: boolean = true,
-	includeSeconds: boolean = false,
-): string => (
-	formatDegrees(
-		getLongitude(state),
-		includeMinutes,
-		includeSeconds,
-	) + ' ' + (isEast(state) ? 'E' : 'W')
-);
-
-export const formatCoordinates = (
-	state: ReducerState,
-	includeMinutes: boolean = true,
-	includeSeconds: boolean = false,
-): string => (
-	formatLatitude(state, includeMinutes, includeSeconds) + ' ' +
-	formatLongitude(state, includeMinutes, includeSeconds)
 );
 
 export const isNorth = (state: ReducerState): boolean => (
