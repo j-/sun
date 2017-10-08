@@ -68,7 +68,7 @@ export default class SunChart extends React.Component<Props> {
 						<XAxis dataKey={LOCAL_HOUR_LABEL} ticks={this.buildTicks()} tickFormatter={hourFormatter} />
 						<YAxis width={30} tickFormatter={degreeFormatter} />
 						<CartesianGrid strokeDasharray="3 3" />
-						<Tooltip formatter={degreeFormatter} labelFormatter={labelFormatter} />
+						<Tooltip formatter={degreeFormatter} labelFormatter={labelFormatter} separator=": " />
 						<ReferenceLine y={0} stroke="#aaa" label="Local horizon" />
 						<ReferenceLine y={50} stroke="#ccc" label="UVB penetration angle" />
 						{currentTimeReference}
