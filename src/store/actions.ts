@@ -11,7 +11,7 @@ export interface ActionSetCoords {
 }
 
 export const isActionSetCoords = (action: Action): action is ActionSetCoords => (
-	action.type === 'SetCoods'
+	action.type === 'SetCoords'
 );
 
 export const setCoords = (coords: Coords): ActionSetCoords => ({
