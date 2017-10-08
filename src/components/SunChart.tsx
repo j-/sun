@@ -7,7 +7,6 @@ import {
 	YAxis,
 	CartesianGrid,
 	Tooltip,
-	Legend,
 	Line,
 	ReferenceLine,
 } from 'recharts';
@@ -66,7 +65,6 @@ export default class SunChart extends React.Component<Props> {
 						<YAxis />
 						<CartesianGrid strokeDasharray="3 3" />
 						<Tooltip formatter={valueFormatter} labelFormatter={labelFormatter} />
-						<Legend />
 						<Line type="monotone" dataKey={ALTITUDE_LABEL} stroke="#8884d8" dot={false} />
 						<ReferenceLine y={0} stroke="#aaa" label="Local horizon" />
 						<ReferenceLine y={50} stroke="#ccc" label="UVB penetration angle" />
