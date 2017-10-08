@@ -12,33 +12,18 @@ import {
 } from 'recharts';
 
 export interface Props {
-
+	startDate: Date;
+	endDate: Date;
+	interval: number;
+	getAltitude: (date: Date) => number;
 }
-
-const data = [
-	{ 'Local hour': 6, 'Altitude': -10.9, 'Azimuth': 105.4 },
-	{ 'Local hour': 7, 'Altitude': 1.3, 'Azimuth': 96.1 },
-	{ 'Local hour': 8, 'Altitude': 12.9, 'Azimuth': 87.1 },
-	{ 'Local hour': 9, 'Altitude': 24.8, 'Azimuth': 77.5 },
-	{ 'Local hour': 10, 'Altitude': 36.1, 'Azimuth': 66.3 },
-	{ 'Local hour': 11, 'Altitude': 46.4, 'Azimuth': 51.8 },
-	{ 'Local hour': 12, 'Altitude': 54.5, 'Azimuth': 31.9 },
-	{ 'Local hour': 13, 'Altitude': 58.4, 'Azimuth': 5.7 },
-	{ 'Local hour': 14, 'Altitude': 56.7, 'Azimuth': 337.8 },
-	{ 'Local hour': 15, 'Altitude': 50.0, 'Azimuth': 315.2 },
-	{ 'Local hour': 16, 'Altitude': 40.5, 'Azimuth': 298.9 },
-	{ 'Local hour': 17, 'Altitude': 29.4, 'Azimuth': 286.5 },
-	{ 'Local hour': 18, 'Altitude': 17.7, 'Azimuth': 276.4 },
-	{ 'Local hour': 19, 'Altitude': 5.9, 'Azimuth': 267.3 },
-	{ 'Local hour': 20, 'Altitude': -6.1, 'Azimuth': 258.2 },
-];
 
 export default class SunChart extends React.Component<Props> {
 	render () {
 		return (
 			<div className="SunChart">
-				<LineChart width={1000} height={300} data={data}>
-					<XAxis dataKey="Local hour" />
+				<LineChart width={1000} height={300} data={this.buildData()}>
+					<XAxis dataKey="Local hour" ticks={this.buildTicks()} />
 					<YAxis />
 					<CartesianGrid strokeDasharray="3 3" />
 					<Tooltip />
@@ -50,5 +35,32 @@ export default class SunChart extends React.Component<Props> {
 				</LineChart>
 			</div>
 		);
+	}
+
+	private buildData () {
+		const { startDate, endDate, interval, getAltitude } = this.props;
+		const data = [];
+		let referenceDate = new Date(startDate);
+		while (referenceDate <= endDate) {
+			data.push({
+				'Local hour': referenceDate.getHours() + referenceDate.getMinutes() / 60,
+				'Altitude': getAltitude(referenceDate),
+			});
+			referenceDate.setTime(referenceDate.getTime() + interval);
+		}
+		return data;
+	}
+
+	/** Generates a tick every hour */
+	private buildTicks () {
+		const { startDate, endDate } = this.props;
+		const ticks = [];
+		let referenceDate = new Date(startDate);
+		while (referenceDate <= endDate) {
+			const hours = referenceDate.getHours();
+			ticks.push(hours);
+			referenceDate.setHours(hours + 1);
+		}
+		return ticks;
 	}
 }
