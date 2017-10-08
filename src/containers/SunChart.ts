@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
 import SunChart from '../components/SunChart';
-import { ReducerState, getLatitude, getLongitude } from '../store';
+import { ReducerState, getLatitude, getLongitude, getStartDate, getEndDate, hasDateRange } from '../store';
 import { getSunAltitude } from '../sun-altitude';
 
 interface StateProps {
+	hasDateRange: boolean;
 	startDate: Date;
 	endDate: Date;
 	interval: number;
@@ -11,8 +12,9 @@ interface StateProps {
 }
 
 const mapStateToProps = (state: ReducerState): StateProps => ({
-	startDate: new Date(2017, 9, 7, 6, 0, 0, 0),
-	endDate: new Date(2017, 9, 7, 20, 0, 0, 0),
+	hasDateRange: hasDateRange(state),
+	startDate: getStartDate(state) as Date,
+	endDate: getEndDate(state) as Date,
 	interval: 1000 * 60 * 15, // 15 mins
 	getAltitude: (date: Date) => (
 		getSunAltitude(

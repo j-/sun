@@ -9,7 +9,7 @@ import { Provider as StoreProvider } from 'react-redux';
 import rootReducer from './store';
 import './index.css';
 
-import { setCoords } from './store/actions';
+import { setCoords, setDateRange } from './store/actions';
 
 const store = createStore(rootReducer, composeWithDevTools(
 	applyMiddleware(thunk)
@@ -21,6 +21,26 @@ store.dispatch(
 		latitude: -37.813628,
 		longitude: 144.963058,
 	})
+);
+
+const now = new Date();
+const startDate = new Date(now);
+startDate.setHours(6);
+startDate.setMinutes(0);
+startDate.setSeconds(0);
+startDate.setMilliseconds(0);
+const endDate = new Date(now);
+endDate.setHours(20);
+endDate.setMinutes(0);
+endDate.setSeconds(0);
+endDate.setMilliseconds(0);
+
+// Use today as a default
+store.dispatch(
+	setDateRange(
+		startDate,
+		endDate,
+	)
 );
 
 ReactDOM.render(

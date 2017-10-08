@@ -12,6 +12,7 @@ import {
 } from 'recharts';
 
 export interface Props {
+	hasDateRange: boolean;
 	startDate: Date;
 	endDate: Date;
 	interval: number;
@@ -39,6 +40,10 @@ const valueFormatter = (value: number): string => {
 
 export default class SunChart extends React.Component<Props> {
 	render () {
+		if (!this.props.hasDateRange) {
+			return null;
+		}
+
 		return (
 			<div className="SunChart">
 				<LineChart width={1000} height={300} data={this.buildData()}>

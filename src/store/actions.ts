@@ -53,3 +53,23 @@ export const fetchCoords = (dispatch: Dispatch<Action>) => () => {
 	};
 	navigator.geolocation.getCurrentPosition(successHandler, errorHandler);
 };
+
+export interface ActionSetDateRange {
+	type: 'SetDateRange';
+	data: {
+		startDate: Date;
+		endDate: Date;
+	};
+}
+
+export const isActionSetDateRange = (action: Action): action is ActionSetDateRange => (
+	action.type === 'SetDateRange'
+);
+
+export const setDateRange = (startDate: Date, endDate: Date): ActionSetDateRange => ({
+	type: 'SetDateRange',
+	data: {
+		startDate,
+		endDate,
+	},
+});
