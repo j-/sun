@@ -23,7 +23,7 @@ export interface Props {
 const LOCAL_HOUR_LABEL = 'Local hour';
 const ALTITUDE_LABEL = 'Altitude';
 
-const tickFormatter = (value: number): string => (
+const hourFormatter = (value: number): string => (
 	(Math.floor(value % 12) || 12) + (value >= 12 ? 'pm' : 'am')
 );
 
@@ -39,7 +39,7 @@ const labelFormatter = (value: number): string => {
 };
 
 /** Round to 1 decimal place and add degrees symbol */
-const valueFormatter = (value: number): string => {
+const degreeFormatter = (value: number): string => {
 	return Math.round(value * 10) / 10 + '\xb0';
 };
 
@@ -65,10 +65,10 @@ export default class SunChart extends React.Component<Props> {
 			<div className="SunChart">
 				<div className="SunChart-inner">
 					<LineChart width={1000} height={300} data={this.buildData()}>
-						<XAxis dataKey={LOCAL_HOUR_LABEL} ticks={this.buildTicks()} tickFormatter={tickFormatter} />
-						<YAxis width={30} />
+						<XAxis dataKey={LOCAL_HOUR_LABEL} ticks={this.buildTicks()} tickFormatter={hourFormatter} />
+						<YAxis width={30} tickFormatter={degreeFormatter} />
 						<CartesianGrid strokeDasharray="3 3" />
-						<Tooltip formatter={valueFormatter} labelFormatter={labelFormatter} />
+						<Tooltip formatter={degreeFormatter} labelFormatter={labelFormatter} />
 						<Line type="monotone" dataKey={ALTITUDE_LABEL} stroke="#8884d8" dot={false} />
 						<ReferenceLine y={0} stroke="#aaa" label="Local horizon" />
 						<ReferenceLine y={50} stroke="#ccc" label="UVB penetration angle" />
