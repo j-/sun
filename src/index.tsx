@@ -2,15 +2,18 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
-import { createStore } from 'redux';
-import { devToolsEnhancer } from 'redux-devtools-extension';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider as StoreProvider } from 'react-redux';
 import rootReducer from './store';
 import './index.css';
 
 import { setCoords } from './store/actions';
 
-const store = createStore(rootReducer, devToolsEnhancer({}));
+const store = createStore(rootReducer, composeWithDevTools(
+	applyMiddleware(thunk)
+));
 
 // Use Melbourne as a default
 store.dispatch(
