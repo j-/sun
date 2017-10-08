@@ -18,17 +18,20 @@ export interface Props {
 	getAltitude: (date: Date) => number;
 }
 
+const LOCAL_HOUR_LABEL = 'Local hour';
+const ALTITUDE_LABEL = 'Altitude';
+
 export default class SunChart extends React.Component<Props> {
 	render () {
 		return (
 			<div className="SunChart">
 				<LineChart width={1000} height={300} data={this.buildData()}>
-					<XAxis dataKey="Local hour" ticks={this.buildTicks()} />
+					<XAxis dataKey={LOCAL_HOUR_LABEL} ticks={this.buildTicks()} />
 					<YAxis />
 					<CartesianGrid strokeDasharray="3 3" />
 					<Tooltip />
 					<Legend />
-					<Line type="monotone" dataKey="Altitude" stroke="#8884d8" dot={false} />
+					<Line type="monotone" dataKey={ALTITUDE_LABEL} stroke="#8884d8" dot={false} />
 					<ReferenceLine y={0} stroke="#aaa" label="Local horizon" />
 					<ReferenceLine y={50} stroke="#ccc" label="UVB penetration angle" />
 					<ReferenceLine x={11} stroke="#800" label="Current time" />
@@ -43,8 +46,8 @@ export default class SunChart extends React.Component<Props> {
 		let referenceDate = new Date(startDate);
 		while (referenceDate <= endDate) {
 			data.push({
-				'Local hour': referenceDate.getHours() + referenceDate.getMinutes() / 60,
-				'Altitude': getAltitude(referenceDate),
+				[LOCAL_HOUR_LABEL]: referenceDate.getHours() + referenceDate.getMinutes() / 60,
+				[ALTITUDE_LABEL]: getAltitude(referenceDate),
 			});
 			referenceDate.setTime(referenceDate.getTime() + interval);
 		}
