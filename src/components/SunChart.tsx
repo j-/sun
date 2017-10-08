@@ -21,6 +21,22 @@ export interface Props {
 const LOCAL_HOUR_LABEL = 'Local hour';
 const ALTITUDE_LABEL = 'Altitude';
 
+/** Format like clock time */
+const labelFormatter = (value: number): string => {
+	const hours = Math.floor(value % 12) || 12;
+	let minutes: string | number = Math.floor((value % 1) * 60);
+	if (minutes < 10) {
+		minutes = '0' + minutes;
+	}
+	const ampm = value >= 12 ? 'PM' : 'AM';
+	return `${hours}:${minutes} ${ampm}`;
+};
+
+/** Round to 1 decimal place and add degrees symbol */
+const valueFormatter = (value: number): string => {
+	return Math.round(value * 10) / 10 + '\xb0';
+};
+
 export default class SunChart extends React.Component<Props> {
 	render () {
 		return (
@@ -29,7 +45,7 @@ export default class SunChart extends React.Component<Props> {
 					<XAxis dataKey={LOCAL_HOUR_LABEL} ticks={this.buildTicks()} />
 					<YAxis />
 					<CartesianGrid strokeDasharray="3 3" />
-					<Tooltip />
+					<Tooltip formatter={valueFormatter} labelFormatter={labelFormatter} />
 					<Legend />
 					<Line type="monotone" dataKey={ALTITUDE_LABEL} stroke="#8884d8" dot={false} />
 					<ReferenceLine y={0} stroke="#aaa" label="Local horizon" />
