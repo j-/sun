@@ -11,7 +11,7 @@ export default class FetchCoordsState extends React.Component<Props> {
 		const { isFetching, hasError, errorMessage } = this.props;
 		return (
 			<div className="FetchCoordsState">
-				{isFetching && <em>Fetching&hellip;</em>}
+				{isFetching && <em>Locating&hellip;</em>}
 				{hasError && <strong>{errorMessage}</strong>}
 			</div>
 		);
