@@ -34,3 +34,10 @@ body {
 	padding: 0;
 	font-family: sans-serif;
 }
+
+button,
+input,
+textarea {
+	font-size: 1em;
+	font-family: inherit;
+}
