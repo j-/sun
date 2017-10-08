@@ -62,7 +62,7 @@ export default class SunChart extends React.Component<Props> {
 				<div className="SunChart-inner">
 					<LineChart width={1000} height={300} data={this.buildData()}>
 						<XAxis dataKey={LOCAL_HOUR_LABEL} ticks={this.buildTicks()} />
-						<YAxis />
+						<YAxis width={30} />
 						<CartesianGrid strokeDasharray="3 3" />
 						<Tooltip formatter={valueFormatter} labelFormatter={labelFormatter} />
 						<Line type="monotone" dataKey={ALTITUDE_LABEL} stroke="#8884d8" dot={false} />
