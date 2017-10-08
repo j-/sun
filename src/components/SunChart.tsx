@@ -60,17 +60,19 @@ export default class SunChart extends React.Component<Props> {
 
 		return (
 			<div className="SunChart">
-				<LineChart width={1000} height={300} data={this.buildData()}>
-					<XAxis dataKey={LOCAL_HOUR_LABEL} ticks={this.buildTicks()} />
-					<YAxis />
-					<CartesianGrid strokeDasharray="3 3" />
-					<Tooltip formatter={valueFormatter} labelFormatter={labelFormatter} />
-					<Legend />
-					<Line type="monotone" dataKey={ALTITUDE_LABEL} stroke="#8884d8" dot={false} />
-					<ReferenceLine y={0} stroke="#aaa" label="Local horizon" />
-					<ReferenceLine y={50} stroke="#ccc" label="UVB penetration angle" />
-					{currentTimeReference}
-				</LineChart>
+				<div className="SunChart-inner">
+					<LineChart width={1000} height={300} data={this.buildData()}>
+						<XAxis dataKey={LOCAL_HOUR_LABEL} ticks={this.buildTicks()} />
+						<YAxis />
+						<CartesianGrid strokeDasharray="3 3" />
+						<Tooltip formatter={valueFormatter} labelFormatter={labelFormatter} />
+						<Legend />
+						<Line type="monotone" dataKey={ALTITUDE_LABEL} stroke="#8884d8" dot={false} />
+						<ReferenceLine y={0} stroke="#aaa" label="Local horizon" />
+						<ReferenceLine y={50} stroke="#ccc" label="UVB penetration angle" />
+						{currentTimeReference}
+					</LineChart>
+				</div>
 			</div>
 		);
 	}
