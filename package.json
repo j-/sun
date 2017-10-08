@@ -2,7 +2,10 @@
   "name": "sun",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "@types/redux-devtools-extension": "^2.13.2",
+    "redux-devtools-extension": "^2.13.2"
+  },
   "scripts": {
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
