@@ -1,0 +1,9 @@
+.Coords {
+	display: flex;
+	flex-direction: row;
+}
+
+.Coords-latitude,
+.Coords-longitude {
+	padding: 0.25em;
+}

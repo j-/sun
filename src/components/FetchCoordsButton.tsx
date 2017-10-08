@@ -12,7 +12,7 @@ export default class FetchCoordsButton extends React.Component<Props> {
 				className="FetchCoordsButton"
 				{...this.props}
 			>
-				&#8982;
+				&#8982; Locate me
 			</button>
 		);
 	}
