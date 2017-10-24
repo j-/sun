@@ -5,7 +5,7 @@ export interface Coords {
 	longitude: number;
 }
 
-export interface ActionSetCoords {
+export interface ActionSetCoords extends Action {
 	type: 'SetCoords';
 	data: Coords;
 }
@@ -19,7 +19,7 @@ export const setCoords = (coords: Coords): ActionSetCoords => ({
 	data: coords,
 });
 
-export interface ActionSetCoordsError {
+export interface ActionSetCoordsError extends Action {
 	type: 'SetCoordsError';
 	data: {
 		message: string;
@@ -35,7 +35,7 @@ export const setCoordsError = (message: string): ActionSetCoordsError => ({
 	data: { message },
 });
 
-export interface ActionFetchCoords {
+export interface ActionFetchCoords extends Action {
 	type: 'FetchCoords';
 }
 
@@ -54,7 +54,7 @@ export const fetchCoords = (dispatch: Dispatch<Action>) => () => {
 	navigator.geolocation.getCurrentPosition(successHandler, errorHandler);
 };
 
-export interface ActionSetDateRange {
+export interface ActionSetDateRange extends Action {
 	type: 'SetDateRange';
 	data: {
 		startDate: Date;
@@ -74,7 +74,7 @@ export const setDateRange = (startDate: Date, endDate: Date): ActionSetDateRange
 	},
 });
 
-export interface ActionSetCurrentTime {
+export interface ActionSetCurrentTime extends Action {
 	type: 'SetCurrentTime';
 	data: {
 		date: Date;
