@@ -1,4 +1,5 @@
 import { Action, Dispatch } from 'redux';
+import { ReducerState, getStartDate } from './index';
 
 export interface Coords {
 	latitude: number;
@@ -43,7 +44,7 @@ export const isActionFetchCoords = (action: Action): action is ActionFetchCoords
 	action.type === 'FetchCoords'
 );
 
-export const fetchCoords = (dispatch: Dispatch<Action>) => () => {
+export const fetchCoords = () => (dispatch: Dispatch<Action>) => {
 	dispatch({ type: 'FetchCoords' });
 	const successHandler = ({ coords }: { coords: Coords }) => {
 		dispatch(setCoords(coords));
@@ -73,6 +74,70 @@ export const setDateRange = (startDate: Date, endDate: Date): ActionSetDateRange
 		endDate,
 	},
 });
+
+export const gotoToday = () => (dispatch: Dispatch<Action>) => {
+	const now = new Date();
+
+	const startDate = new Date(now);
+	startDate.setHours(6);
+	startDate.setMinutes(0);
+	startDate.setSeconds(0);
+	startDate.setMilliseconds(0);
+
+	const endDate = new Date(now);
+	endDate.setHours(20);
+	endDate.setMinutes(0);
+	endDate.setSeconds(0);
+	endDate.setMilliseconds(0);
+
+	dispatch(setDateRange(startDate, endDate));
+};
+
+export const gotoPrevDay = () => (dispatch: Dispatch<Action>, getState: () => ReducerState) => {
+	const now = getStartDate(getState());
+	if (!now) {
+		return;
+	}
+
+	now.setDate(now.getDate() - 1);
+
+	const startDate = new Date(now);
+	startDate.setHours(6);
+	startDate.setMinutes(0);
+	startDate.setSeconds(0);
+	startDate.setMilliseconds(0);
+
+	const endDate = new Date(now);
+	endDate.setHours(20);
+	endDate.setMinutes(0);
+	endDate.setSeconds(0);
+	endDate.setMilliseconds(0);
+
+	dispatch(setDateRange(startDate, endDate));
+};
+
+export const gotoNextDay = () => (dispatch: Dispatch<Action>, getState: () => ReducerState) => {
+	const now = getStartDate(getState());
+	if (!now) {
+		return;
+	}
+
+	now.setDate(now.getDate() + 1);
+
+	const startDate = new Date(now);
+	startDate.setHours(6);
+	startDate.setMinutes(0);
+	startDate.setSeconds(0);
+	startDate.setMilliseconds(0);
+
+	const endDate = new Date(now);
+	endDate.setHours(20);
+	endDate.setMinutes(0);
+	endDate.setSeconds(0);
+	endDate.setMilliseconds(0);
+
+	dispatch(setDateRange(startDate, endDate));
+};
 
 export interface ActionSetCurrentTime extends Action {
 	type: 'SetCurrentTime';

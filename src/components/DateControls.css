@@ -1,0 +1,9 @@
+.DateControls-current-date {
+	padding: 0.25em;
+}
+
+.DateControls-date-picker button {
+	line-height: 2em;
+	margin: 0.25em;
+	padding: 0.25em 0.5em;
+}
