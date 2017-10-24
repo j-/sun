@@ -10,17 +10,17 @@ export default class DatePicker extends React.Component<Props> {
 	render () {
 		const { onClickPrev, onClickNext, onClickToday } = this.props;
 		return (
-			<div className="DatePicker">
+			<div className="DatePicker pt-button-group pt-large">
 				<button
-					className="DatePicker-prev"
+					className="DatePicker-prev pt-button"
 					type="button"
 					onClick={onClickPrev}
 				>
-					&larr; Prev
+					<span className="pt-icon-standard pt-icon-arrow-left" />
 				</button>
 
 				<button
-					className="DatePicker-today"
+					className="DatePicker-today pt-button"
 					type="button"
 					onClick={onClickToday}
 				>
@@ -28,11 +28,11 @@ export default class DatePicker extends React.Component<Props> {
 				</button>
 
 				<button
-					className="DatePicker-next"
+					className="DatePicker-next pt-button"
 					type="button"
 					onClick={onClickNext}
 				>
-					Next &rarr;
+					<span className="pt-icon-standard pt-icon-arrow-right pt-align-right" />
 				</button>
 			</div>
 		);

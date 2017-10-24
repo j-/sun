@@ -7,6 +7,7 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider as StoreProvider } from 'react-redux';
 import rootReducer from './store';
+import '@blueprintjs/core/dist/blueprint.css';
 import './index.css';
 
 import { setCoords, gotoToday, setCurrentTime } from './store/actions';

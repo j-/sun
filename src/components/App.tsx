@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Ribbon from './Ribbon';
-import Coords from '../containers/Coords';
-import FetchCoords from './FetchCoords';
+import CoordControls from './CoordControls';
 import DateControls from './DateControls';
 import SunChart from '../containers/SunChart';
 import './App.css';
@@ -14,8 +13,7 @@ const App = () => (
 
 		<section>
 			<h2>Coordinates</h2>
-			<Coords />
-			<FetchCoords />
+			<CoordControls />
 		</section>
 
 		<section>

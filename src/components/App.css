@@ -1,5 +1,6 @@
 .App {
-	max-width: 1032px;
+	max-width: 1064px;
 	margin: 3rem auto;
 	padding: 1rem;
+	box-sizing: border-box;
 }

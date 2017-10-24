@@ -3,11 +3,6 @@
 	flex-direction: row;
 }
 
-.Coords-latitude,
-.Coords-longitude {
-	padding: 0.25em;
-}
-
 .Coords-latitude::before,
 .Coords-longitude::before {
 	margin: 0 0.25em;

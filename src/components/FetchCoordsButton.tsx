@@ -8,11 +8,11 @@ export default class FetchCoordsButton extends React.Component<Props> {
 	render () {
 		return (
 			<button
+				className="FetchCoordsButton pt-button pt-large"
 				type="button"
-				className="FetchCoordsButton"
 				{...this.props}
 			>
-				&#8982; Locate me
+				<span className="pt-icon-standard pt-icon-locate" /> Locate me
 			</button>
 		);
 	}

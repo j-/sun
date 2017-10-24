@@ -3,15 +3,6 @@
 	flex-direction: row;
 }
 
-.FetchCoords-button {
-	margin: 0.25em;
-}
-
-.FetchCoords-button > button {
-	line-height: 2em;
-}
-
 .FetchCoords-state {
-	line-height: 2em;
 	padding: 0.5em 1em;
 }
