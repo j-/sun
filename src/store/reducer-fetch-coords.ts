@@ -3,13 +3,11 @@ import { isActionSetCoords, isActionFetchCoords, isActionSetCoordsError } from '
 
 export interface ReducerState {
 	isFetching: boolean;
-	hasError: boolean;
 	errorMessage: string | null;
 }
 
 const DEFAULT_STATE: ReducerState = {
 	isFetching: false,
-	hasError: false,
 	errorMessage: null,
 };
 
@@ -18,7 +16,6 @@ const reducer: Reducer<ReducerState> = (state = DEFAULT_STATE, action) => {
 		return {
 			...state,
 			isFetching: false,
-			hasError: false,
 			errorMessage: null,
 		};
 	}
@@ -27,7 +24,6 @@ const reducer: Reducer<ReducerState> = (state = DEFAULT_STATE, action) => {
 		return {
 			...state,
 			isFetching: true,
-			hasError: false,
 			errorMessage: null,
 		};
 	}
@@ -36,7 +32,6 @@ const reducer: Reducer<ReducerState> = (state = DEFAULT_STATE, action) => {
 		return {
 			...state,
 			isFetching: false,
-			hasError: true,
 			errorMessage: action.data.message,
 		};
 	}
@@ -49,7 +44,7 @@ export const isFetching = (state: ReducerState): boolean => (
 );
 
 export const hasError = (state: ReducerState): boolean => (
-	state.hasError
+	state.errorMessage !== null
 );
 
 export const getErrorMessage = (state: ReducerState): string | null => (
