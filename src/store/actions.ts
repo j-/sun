@@ -45,12 +45,12 @@ export const isActionFetchCoords = (action: Action): action is ActionFetchCoords
 );
 
 export const fetchCoords = () => (dispatch: Dispatch<Action>) => {
-	dispatch({ type: 'FetchCoords' });
+	dispatch<ActionFetchCoords>({ type: 'FetchCoords' });
 	const successHandler = ({ coords }: { coords: Coords }) => {
-		dispatch(setCoords(coords));
+		dispatch<ActionSetCoords>(setCoords(coords));
 	};
 	const errorHandler = (err: PositionError) => {
-		dispatch(setCoordsError(err.message));
+		dispatch<ActionSetCoordsError>(setCoordsError(err.message));
 	};
 	navigator.geolocation.getCurrentPosition(successHandler, errorHandler);
 };
@@ -90,7 +90,7 @@ export const gotoToday = () => (dispatch: Dispatch<Action>) => {
 	endDate.setSeconds(0);
 	endDate.setMilliseconds(0);
 
-	dispatch(setDateRange(startDate, endDate));
+	dispatch<ActionSetDateRange>(setDateRange(startDate, endDate));
 };
 
 export const gotoPrevDay = () => (dispatch: Dispatch<Action>, getState: () => ReducerState) => {
@@ -113,7 +113,7 @@ export const gotoPrevDay = () => (dispatch: Dispatch<Action>, getState: () => Re
 	endDate.setSeconds(0);
 	endDate.setMilliseconds(0);
 
-	dispatch(setDateRange(startDate, endDate));
+	dispatch<ActionSetDateRange>(setDateRange(startDate, endDate));
 };
 
 export const gotoNextDay = () => (dispatch: Dispatch<Action>, getState: () => ReducerState) => {
@@ -136,7 +136,7 @@ export const gotoNextDay = () => (dispatch: Dispatch<Action>, getState: () => Re
 	endDate.setSeconds(0);
 	endDate.setMilliseconds(0);
 
-	dispatch(setDateRange(startDate, endDate));
+	dispatch<ActionSetDateRange>(setDateRange(startDate, endDate));
 };
 
 export interface ActionSetCurrentTime extends Action {
