@@ -58,8 +58,8 @@ export const fetchCoords = () => (dispatch: Dispatch<Action>) => {
 export interface ActionSetDateRange extends Action {
 	type: 'SetDateRange';
 	data: {
-		startDate: Date;
-		endDate: Date;
+		startDate: string;
+		endDate: string;
 	};
 }
 
@@ -70,8 +70,8 @@ export const isActionSetDateRange = (action: Action): action is ActionSetDateRan
 export const setDateRange = (startDate: Date, endDate: Date): ActionSetDateRange => ({
 	type: 'SetDateRange',
 	data: {
-		startDate,
-		endDate,
+		startDate: startDate.toISOString(),
+		endDate: endDate.toISOString(),
 	},
 });
 
@@ -142,7 +142,7 @@ export const gotoNextDay = () => (dispatch: Dispatch<Action>, getState: () => Re
 export interface ActionSetCurrentTime extends Action {
 	type: 'SetCurrentTime';
 	data: {
-		date: Date;
+		date: string;
 	};
 }
 
@@ -153,6 +153,6 @@ export const isActionSetCurrentTime = (action: Action): action is ActionSetCurre
 export const setCurrentTime = (date: Date): ActionSetCurrentTime => ({
 	type: 'SetCurrentTime',
 	data: {
-		date,
+		date: date.toISOString(),
 	},
 });

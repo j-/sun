@@ -17,15 +17,15 @@ const reducer: Reducer<ReducerState> = (state = DEFAULT_STATE, action) => {
 	if (isActionSetDateRange(action)) {
 		return {
 			...state,
-			startDate: action.data.startDate.toISOString(),
-			endDate: action.data.endDate.toISOString(),
+			startDate: action.data.startDate,
+			endDate: action.data.endDate,
 		};
 	}
 
 	if (isActionSetCurrentTime(action)) {
 		return {
 			...state,
-			currentTime: action.data.date.toISOString(),
+			currentTime: action.data.date,
 		};
 	}
 
