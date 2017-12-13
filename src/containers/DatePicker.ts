@@ -8,7 +8,7 @@ interface OwnProps {
 }
 
 interface StateProps {
-
+	isToday: boolean | null;
 }
 
 interface DispatchProps {
@@ -17,14 +17,12 @@ interface DispatchProps {
 	onClickToday: () => void;
 }
 
-const mapStateToProps: MapStateToProps<StateProps, OwnProps> = (state: ReducerState) => {
+const mapStateToProps: MapStateToProps<StateProps, OwnProps> = (state: ReducerState): StateProps => {
 	const currentTime = getCurrentTime(state);
 	const startDate = getStartDate(state);
 	const endDate = getEndDate(state);
 	return {
-		highlightPrev: currentTime && startDate && (currentTime < startDate),
-		highlightToday: currentTime && startDate && endDate && (currentTime > startDate) && (currentTime < endDate),
-		highlightNext: currentTime && endDate && (currentTime > endDate),
+		isToday: currentTime && startDate && endDate && (currentTime > startDate) && (currentTime < endDate),
 	};
 };
 

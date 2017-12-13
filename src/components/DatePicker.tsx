@@ -1,29 +1,25 @@
 import * as React from 'react';
 
 export interface Props {
-	highlightPrev?: boolean;
 	onClickPrev: () => void;
-	highlightNext?: boolean;
 	onClickNext: () => void;
-	highlightToday?: boolean;
 	onClickToday: () => void;
+	isToday: boolean | null;
 }
 
 export default class DatePicker extends React.Component<Props> {
 	render () {
 		const {
 			onClickPrev,
-			highlightPrev,
 			onClickNext,
-			highlightNext,
 			onClickToday,
-			highlightToday,
+			isToday,
 		} = this.props;
 
 		return (
 			<div className="DatePicker pt-button-group pt-large">
 				<button
-					className={'DatePicker-prev pt-button ' + (highlightPrev ? 'pt-intent-primary' : '')}
+					className="DatePicker-prev pt-button"
 					type="button"
 					onClick={onClickPrev}
 				>
@@ -31,15 +27,16 @@ export default class DatePicker extends React.Component<Props> {
 				</button>
 
 				<button
-					className={'DatePicker-today pt-button ' + (highlightToday ? 'pt-intent-primary' : '')}
+					className="DatePicker-today pt-button pt-intent-primary"
 					type="button"
 					onClick={onClickToday}
+					disabled={isToday === true}
 				>
 					Today
 				</button>
 
 				<button
-					className={'DatePicker-next pt-button ' + (highlightNext ? 'pt-intent-primary' : '')}
+					className="DatePicker-next pt-button"
 					type="button"
 					onClick={onClickNext}
 				>
