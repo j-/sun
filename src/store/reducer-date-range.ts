@@ -21,6 +21,7 @@ const reducer: Reducer<ReducerState> = (state = DEFAULT_STATE, action) => {
 			endDate: action.data.endDate.toISOString(),
 		};
 	}
+
 	if (isActionSetCurrentTime(action)) {
 		return {
 			...state,
