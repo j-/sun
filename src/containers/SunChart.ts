@@ -3,7 +3,7 @@ import SunChart from '../components/SunChart';
 import { getSunAltitude } from '../sun-altitude';
 
 import {
-	ReducerState,
+	RootReducerState,
 	getLatitude,
 	getLongitude,
 	getStartDate,
@@ -21,7 +21,7 @@ interface StateProps {
 	getAltitude: (date: Date) => number;
 }
 
-const mapStateToProps = (state: ReducerState): StateProps => ({
+const mapStateToProps = (state: RootReducerState): StateProps => ({
 	hasDateRange: hasDateRange(state),
 	startDate: getStartDate(state) as Date,
 	endDate: getEndDate(state) as Date,

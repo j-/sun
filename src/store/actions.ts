@@ -1,5 +1,5 @@
 import { Action, Dispatch } from 'redux';
-import { ReducerState, getStartDate } from './index';
+import { RootReducerState, getStartDate } from './index';
 
 export interface Coords {
 	latitude: number;
@@ -93,7 +93,7 @@ export const gotoToday = () => (dispatch: Dispatch<Action>) => {
 	dispatch<ActionSetDateRange>(setDateRange(startDate, endDate));
 };
 
-export const gotoPrevDay = () => (dispatch: Dispatch<Action>, getState: () => ReducerState) => {
+export const gotoPrevDay = () => (dispatch: Dispatch<Action>, getState: () => RootReducerState) => {
 	const now = getStartDate(getState());
 	if (!now) {
 		return;
@@ -116,7 +116,7 @@ export const gotoPrevDay = () => (dispatch: Dispatch<Action>, getState: () => Re
 	dispatch<ActionSetDateRange>(setDateRange(startDate, endDate));
 };
 
-export const gotoNextDay = () => (dispatch: Dispatch<Action>, getState: () => ReducerState) => {
+export const gotoNextDay = () => (dispatch: Dispatch<Action>, getState: () => RootReducerState) => {
 	const now = getStartDate(getState());
 	if (!now) {
 		return;

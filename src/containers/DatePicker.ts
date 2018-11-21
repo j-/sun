@@ -1,6 +1,6 @@
 import { connect, MapStateToProps, MapDispatchToProps } from 'react-redux';
 import DatePicker from '../components/DatePicker';
-import { ReducerState, getCurrentTime, getStartDate, getEndDate } from '../store';
+import { RootReducerState, getCurrentTime, getStartDate, getEndDate } from '../store';
 import { gotoPrevDay, gotoNextDay, gotoToday } from '../store/actions';
 
 interface OwnProps {
@@ -32,7 +32,7 @@ const getMidnightAfter = (input: Date): Date => {
 	return output;
 };
 
-const mapStateToProps: MapStateToProps<StateProps, OwnProps> = (state: ReducerState): StateProps => {
+const mapStateToProps: MapStateToProps<StateProps, OwnProps> = (state: RootReducerState): StateProps => {
 	const currentTime = getCurrentTime(state);
 	const startDate = getStartDate(state);
 	const endDate = getEndDate(state);

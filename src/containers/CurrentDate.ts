@@ -1,6 +1,6 @@
 import { connect, MapStateToProps } from 'react-redux';
 import CurrentDate from '../components/CurrentDate';
-import { ReducerState, getStartDate } from '../store';
+import { RootReducerState, getStartDate } from '../store';
 
 interface OwnProps {
 
@@ -10,7 +10,7 @@ interface StateProps {
 	value?: Date | null;
 }
 
-const mapStateToProps: MapStateToProps<StateProps, OwnProps> = (state: ReducerState) => ({
+const mapStateToProps: MapStateToProps<StateProps, OwnProps> = (state: RootReducerState) => ({
 	value: getStartDate(state),
 });
 

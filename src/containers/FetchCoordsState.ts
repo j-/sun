@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import FetchCoordsState from '../components/FetchCoordsState';
-import { ReducerState, isFetching, hasError, getErrorMessage } from '../store';
+import { RootReducerState, isFetching, hasError, getErrorMessage } from '../store';
 
 interface StateProps {
 	isFetching: boolean;
@@ -8,7 +8,7 @@ interface StateProps {
 	errorMessage: string | null;
 }
 
-const mapStateToProps = (state: ReducerState): StateProps => ({
+const mapStateToProps = (state: RootReducerState): StateProps => ({
 	isFetching: isFetching(state),
 	hasError: hasError(state),
 	errorMessage: getErrorMessage(state),

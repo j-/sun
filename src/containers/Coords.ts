@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 import Coords from '../components/Coords';
-import { ReducerState, getLatitude, getLongitude } from '../store';
+import { RootReducerState, getLatitude, getLongitude } from '../store';
 
 interface StateProps {
 	latitude: number;
 	longitude: number;
 }
 
-const mapStateToProps = (state: ReducerState): StateProps => ({
+const mapStateToProps = (state: RootReducerState): StateProps => ({
 	latitude: getLatitude(state),
 	longitude: getLongitude(state),
 });
