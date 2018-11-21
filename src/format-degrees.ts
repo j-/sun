@@ -14,3 +14,21 @@ export const formatDegrees = (
 		return `${Math.floor(degrees)}\xb0 ${Math.floor(minutes)}' ${Math.round(seconds)}"`;
 	}
 };
+
+export const formatLatitude = (
+	latitude: number,
+	includeMinutes: boolean = true,
+	includeSeconds: boolean = false,
+): string => (
+	formatDegrees(Math.abs(latitude), includeMinutes, includeSeconds)) +
+	' ' + (latitude >= 0 ? 'N' : 'S'
+);
+
+export const formatLongitude = (
+	longitude: number,
+	includeMinutes: boolean = true,
+	includeSeconds: boolean = false,
+): string => (
+	formatDegrees(Math.abs(longitude), includeMinutes, includeSeconds)) +
+	' ' + (longitude >= 0 ? 'E' : 'W'
+);
