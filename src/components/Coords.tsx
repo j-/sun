@@ -9,26 +9,21 @@ export interface Props {
 	includeSeconds?: boolean;
 }
 
-export default class Coords extends React.Component<Props> {
-	render () {
-		const {
-			latitude,
-			longitude,
-			includeMinutes,
-			includeSeconds,
-		} = this.props;
-		const formattedLatitude = formatLatitude(latitude, includeMinutes, includeSeconds);
-		const formattedLongitude = formatLongitude(longitude, includeMinutes, includeSeconds);
-		return (
-			<div className="Coords">
-				<span className="Coords-latitude">
-					{formattedLatitude}
-				</span>
-				<br />
-				<span className="Coords-longitude">
-					{formattedLongitude}
-				</span>
-			</div>
-		);
-	}
-}
+const Coords: React.StatelessComponent<Props> = ({
+	latitude,
+	longitude,
+	includeMinutes,
+	includeSeconds,
+}) => (
+	<div className="Coords">
+		<span className="Coords-latitude">
+			{formatLatitude(latitude, includeMinutes, includeSeconds)}
+		</span>
+		<br />
+		<span className="Coords-longitude">
+			{formatLongitude(longitude, includeMinutes, includeSeconds)}
+		</span>
+	</div>
+);
+
+export default Coords;

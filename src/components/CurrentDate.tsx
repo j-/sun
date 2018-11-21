@@ -4,17 +4,12 @@ export interface Props {
 	value?: Date | null;
 }
 
-export default class CurrentDate extends React.Component<Props> {
-	render () {
-		const { value } = this.props;
-		if (!value) {
-			return null;
-		}
+const CurrentDate: React.StatelessComponent<Props> = ({ value }) => (
+	value ? (
+		<time dateTime={value.toISOString()}>
+			{value.toDateString()}
+		</time>
+	) : null
+);
 
-		return (
-			<time dateTime={value.toISOString()}>
-				{value.toDateString()}
-			</time>
-		);
-	}
-}
+export default CurrentDate;

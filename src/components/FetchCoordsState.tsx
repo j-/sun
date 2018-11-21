@@ -6,14 +6,15 @@ export interface Props {
 	errorMessage: string | null;
 }
 
-export default class FetchCoordsState extends React.Component<Props> {
-	render () {
-		const { isFetching, hasError, errorMessage } = this.props;
-		return (
-			<div className="FetchCoordsState">
-				{isFetching && <em>Locating&hellip;</em>}
-				{hasError && <strong>Error: {errorMessage}</strong>}
-			</div>
-		);
-	}
-}
+const FetchCoordsState: React.StatelessComponent<Props> = ({
+	isFetching,
+	hasError,
+	errorMessage
+}) => (
+	<div className="FetchCoordsState">
+		{isFetching && <em>Locating&hellip;</em>}
+		{hasError && <strong>Error: {errorMessage}</strong>}
+	</div>
+);
+
+export default FetchCoordsState;
