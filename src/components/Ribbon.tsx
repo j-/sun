@@ -1,5 +1,5 @@
 import * as React from 'react';
-const imageSrc = require('../images/ribbon.png');
+import imageSrc from '../images/ribbon.png';
 
 const Ribbon: React.StatelessComponent = () => (
 	<a href="https://github.com/j-/sun">
