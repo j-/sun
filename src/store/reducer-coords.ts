@@ -23,27 +23,27 @@ const reducer: Reducer<ReducerState> = (state = DEFAULT_STATE, action) => {
 	return state;
 };
 
-export const getLatitude = (state: ReducerState): number => (
+export const getLatitude = (state: ReducerState) => (
 	state.latitude
 );
 
-export const getLongitude = (state: ReducerState): number => (
+export const getLongitude = (state: ReducerState) => (
 	state.longitude
 );
 
-export const isNorth = (state: ReducerState): boolean => (
+export const isNorth = (state: ReducerState) => (
 	getLatitude(state) >= 0
 );
 
-export const isEast = (state: ReducerState): boolean => (
+export const isEast = (state: ReducerState) => (
 	getLongitude(state) >= 0
 );
 
-export const isSouth = (state: ReducerState): boolean => (
+export const isSouth = (state: ReducerState) => (
 	getLatitude(state) < 0
 );
 
-export const isWest = (state: ReducerState): boolean => (
+export const isWest = (state: ReducerState) => (
 	getLongitude(state) > 0
 );
 

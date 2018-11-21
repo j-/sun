@@ -32,31 +32,31 @@ const reducer: Reducer<ReducerState> = (state = DEFAULT_STATE, action) => {
 	return state;
 };
 
-export const getStartDate = (state: ReducerState): Date | null => (
+export const getStartDate = (state: ReducerState) => (
 	state.startDate ? new Date(state.startDate) : null
 );
 
-export const getEndDate = (state: ReducerState): Date | null => (
+export const getEndDate = (state: ReducerState) => (
 	state.endDate ? new Date(state.endDate) : null
 );
 
-export const getCurrentTime = (state: ReducerState): Date | null => (
+export const getCurrentTime = (state: ReducerState) => (
 	state.currentTime ? new Date(state.currentTime) : null
 );
 
-export const hasStartDate = (state: ReducerState): boolean => (
+export const hasStartDate = (state: ReducerState) => (
 	getStartDate(state) !== null
 );
 
-export const hasEndDate = (state: ReducerState): boolean => (
+export const hasEndDate = (state: ReducerState) => (
 	getEndDate(state) !== null
 );
 
-export const hasCurrentTime = (state: ReducerState): boolean => (
+export const hasCurrentTime = (state: ReducerState) => (
 	getEndDate(state) !== null
 );
 
-export const hasDateRange = (state: ReducerState): boolean => (
+export const hasDateRange = (state: ReducerState) => (
 	hasStartDate(state) && hasEndDate(state)
 );
 

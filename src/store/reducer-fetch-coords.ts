@@ -39,15 +39,15 @@ const reducer: Reducer<ReducerState> = (state = DEFAULT_STATE, action) => {
 	return state;
 };
 
-export const isFetching = (state: ReducerState): boolean => (
+export const isFetching = (state: ReducerState) => (
 	state.isFetching
 );
 
-export const hasError = (state: ReducerState): boolean => (
+export const hasError = (state: ReducerState) => (
 	state.errorMessage !== null
 );
 
-export const getErrorMessage = (state: ReducerState): string | null => (
+export const getErrorMessage = (state: ReducerState) => (
 	state.errorMessage
 );
 
