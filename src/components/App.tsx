@@ -5,7 +5,7 @@ import DateControls from './DateControls';
 import SunChart from '../containers/SunChart';
 import './App.css';
 
-const App = () => (
+const App: React.StatelessComponent = () => (
 	<div className="App">
 		<Ribbon />
 

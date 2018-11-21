@@ -3,7 +3,7 @@ import FetchCoordsButton from '../containers/FetchCoordsButton';
 import FetchCoordsState from '../containers/FetchCoordsState';
 import './FetchCoords.css';
 
-const FetchCoords = () => (
+const FetchCoords: React.StatelessComponent = () => (
 	<div className="FetchCoords">
 		<div className="FetchCoords-button">
 			<FetchCoordsButton />
