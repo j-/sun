@@ -1,10 +1,11 @@
 import * as React from 'react';
 import imageSrc from '../images/ribbon.png';
+import './Ribbon.css';
 
 const Ribbon: React.StatelessComponent = () => (
-	<a href="https://github.com/j-/sun">
+	<a className="Ribbon" href="https://github.com/j-/sun">
 		<img
-			style={{ position: 'absolute', top: 0, right: 0, border: 0 }}
+			className="Ribbon-image"
 			src={imageSrc}
 			alt="Fork me on GitHub"
 			data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"
