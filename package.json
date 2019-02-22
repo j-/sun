@@ -4,10 +4,12 @@
   "private": true,
   "dependencies": {
     "@types/redux-devtools-extension": "^2.13.2",
+    "@types/suncalc": "^1.8.0",
     "react": "^16.3.2",
     "react-dom": "^16.0.1",
     "recharts": "^1.4.1",
-    "redux-devtools-extension": "^2.13.2"
+    "redux-devtools-extension": "^2.13.2",
+    "suncalc": "^1.8.0"
   },
   "scripts": {
     "start": "react-scripts-ts start",
