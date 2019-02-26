@@ -12,21 +12,21 @@ import {
 } from '../store';
 
 interface StateProps {
-	sunriseStart: Date;
-	sunriseEnd: Date;
-	sunsetStart: Date;
-	sunsetEnd: Date;
-	uvbStart: Date;
-	uvbEnd: Date;
+	sunriseStart: Date | null;
+	sunriseEnd: Date | null;
+	sunsetStart: Date | null;
+	sunsetEnd: Date | null;
+	uvbStart: Date | null;
+	uvbEnd: Date | null;
 }
 
 const mapStateToProps: MapStateToProps<StateProps, {}, RootReducerState> = (state) => ({
-	sunriseStart: getSunriseStartTime(state)!,
-	sunriseEnd: getSunriseEndTime(state)!,
-	sunsetStart: getSunsetStartTime(state)!,
-	sunsetEnd: getSunsetEndTime(state)!,
-	uvbStart: getUVBStartTime(state)!,
-	uvbEnd: getUVBEndTime(state)!,
+	sunriseStart: getSunriseStartTime(state),
+	sunriseEnd: getSunriseEndTime(state),
+	sunsetStart: getSunsetStartTime(state),
+	sunsetEnd: getSunsetEndTime(state),
+	uvbStart: getUVBStartTime(state),
+	uvbEnd: getUVBEndTime(state),
 });
 
 export default connect(

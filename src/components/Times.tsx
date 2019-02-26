@@ -1,12 +1,12 @@
 import * as React from 'react';
 
 export interface Props {
-	sunriseStart: Date;
-	sunriseEnd: Date;
-	sunsetStart: Date;
-	sunsetEnd: Date;
-	uvbStart: Date;
-	uvbEnd: Date;
+	sunriseStart: Date | null;
+	sunriseEnd: Date | null;
+	sunsetStart: Date | null;
+	sunsetEnd: Date | null;
+	uvbStart: Date | null;
+	uvbEnd: Date | null;
 }
 
 const Times: React.StatelessComponent<Props> = ({
@@ -18,16 +18,16 @@ const Times: React.StatelessComponent<Props> = ({
 	<div className="Times">
 		<dl>
 			<dt>Sunrise</dt>
-			<dd>{sunriseStart.toLocaleTimeString()}</dd>
+			<dd>{sunriseStart ? sunriseStart.toLocaleTimeString() : <em>N/A</em>}</dd>
 
 			<dt>UVB penetration begins</dt>
-			<dd>{uvbStart.toLocaleTimeString()}</dd>
+			<dd>{uvbStart ? uvbStart.toLocaleTimeString() : <em>N/A</em>}</dd>
 
 			<dt>UVB penetration ends</dt>
-			<dd>{uvbEnd.toLocaleTimeString()}</dd>
+			<dd>{uvbEnd ? uvbEnd.toLocaleTimeString() : <em>N/A</em>}</dd>
 
 			<dt>Sunset</dt>
-			<dd>{sunsetEnd.toLocaleTimeString()}</dd>
+			<dd>{sunsetEnd ? sunsetEnd.toLocaleTimeString() : <em>N/A</em>}</dd>
 		</dl>
 	</div>
 );
