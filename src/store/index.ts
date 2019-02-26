@@ -110,9 +110,9 @@ export const getUVBEndTime = (state: RootReducerState) => (
 	times.getUVBEndTime(state.times)
 );
 
-export const isUVBPenetrating = (state: RootReducerState, time: Date) => {
+export const isUVBPenetrating = (state: RootReducerState, time: Date) => (
 	times.isUVBPenetrating(state.times, time)
-};
+);
 
 export const getCurrentAngle = (state: RootReducerState) => (
 	getCurrentTime(state) === null ? null : suncalc.getPosition(
