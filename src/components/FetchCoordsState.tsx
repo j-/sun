@@ -12,6 +12,7 @@ const FetchCoordsState: React.StatelessComponent<Props> = ({
 	errorMessage
 }) => (
 	<div className="FetchCoordsState">
+		{!isFetching && !hasError && <span>&zwj;</span>}
 		{isFetching && <em>Locating&hellip;</em>}
 		{hasError && <strong>Error: {errorMessage}</strong>}
 	</div>
