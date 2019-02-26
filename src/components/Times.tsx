@@ -16,19 +16,22 @@ const Times: React.StatelessComponent<Props> = ({
 	uvbEnd,
 }) => (
 	<div className="Times">
-		<dl>
-			<dt>Sunrise</dt>
-			<dd>{sunriseStart ? sunriseStart.toLocaleTimeString() : <em>N/A</em>}</dd>
+		<div className="row">
+			<dl className="col-sm">
+				<dt>UVB penetration begins</dt>
+				<dd>{uvbStart ? uvbStart.toLocaleTimeString() : <em>N/A</em>}</dd>
 
-			<dt>UVB penetration begins</dt>
-			<dd>{uvbStart ? uvbStart.toLocaleTimeString() : <em>N/A</em>}</dd>
+				<dt>UVB penetration ends</dt>
+				<dd>{uvbEnd ? uvbEnd.toLocaleTimeString() : <em>N/A</em>}</dd>
+			</dl>
+			<dl className="col-sm">
+				<dt>Sunrise</dt>
+				<dd>{sunriseStart ? sunriseStart.toLocaleTimeString() : <em>N/A</em>}</dd>
 
-			<dt>UVB penetration ends</dt>
-			<dd>{uvbEnd ? uvbEnd.toLocaleTimeString() : <em>N/A</em>}</dd>
-
-			<dt>Sunset</dt>
-			<dd>{sunsetEnd ? sunsetEnd.toLocaleTimeString() : <em>N/A</em>}</dd>
-		</dl>
+				<dt>Sunset</dt>
+				<dd>{sunsetEnd ? sunsetEnd.toLocaleTimeString() : <em>N/A</em>}</dd>
+			</dl>
+		</div>
 	</div>
 );
 
