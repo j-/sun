@@ -6,10 +6,19 @@ import SunChart from '../containers/SunChart';
 
 const App: React.StatelessComponent = () => (
 	<div className="App">
-		<section className="mb-5">
-			<h2>Coordinates</h2>
-			<CoordControls />
-		</section>
+		<div className="card card-body mb-5">
+			<div className="row">
+				<section className="col-sm">
+					<h2>Location</h2>
+					<CoordControls />
+				</section>
+
+				<section className="col-sm">
+					<h2>Date</h2>
+					<DateControls />
+				</section>
+			</div>
+		</div>
 
 		<section className="mb-5">
 			<h2>Times</h2>
@@ -18,7 +27,6 @@ const App: React.StatelessComponent = () => (
 
 		<section className="mb-5">
 			<h2>Chart</h2>
-			<DateControls />
 			<SunChart />
 		</section>
 	</div>
