@@ -2,11 +2,13 @@ import { Reducer } from 'redux';
 import { isActionSetCoords, isActionFetchCoords, isActionSetCoordsError } from './actions';
 
 export interface ReducerState {
+	isLocated: boolean;
 	isFetching: boolean;
 	errorMessage: string | null;
 }
 
 const DEFAULT_STATE: ReducerState = {
+	isLocated: false,
 	isFetching: false,
 	errorMessage: null,
 };
@@ -15,6 +17,7 @@ const reducer: Reducer<ReducerState> = (state = DEFAULT_STATE, action) => {
 	if (isActionSetCoords(action)) {
 		return {
 			...state,
+			isLocated: true,
 			isFetching: false,
 			errorMessage: null,
 		};
@@ -38,6 +41,10 @@ const reducer: Reducer<ReducerState> = (state = DEFAULT_STATE, action) => {
 
 	return state;
 };
+
+export const isLocated = (state: ReducerState) => (
+	state.isLocated
+);
 
 export const isFetching = (state: ReducerState) => (
 	state.isFetching

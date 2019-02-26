@@ -50,6 +50,10 @@ export const isWest = (state: RootReducerState) => (
 	isLongitudeWest(getLongitude(state))
 );
 
+export const isLocated = (state: RootReducerState) => (
+	fetchCoords.isLocated(state.fetchCoords)
+);
+
 export const isFetching = (state: RootReducerState) => (
 	fetchCoords.isFetching(state.fetchCoords)
 );
