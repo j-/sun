@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import * as suncalc from 'suncalc';
 import * as coords from './reducer-coords';
 import * as fetchCoords from './reducer-fetch-coords';
 import * as dateRange from './reducer-date-range';
@@ -112,3 +113,11 @@ export const getUVBEndTime = (state: RootReducerState) => (
 export const isUVBPenetrating = (state: RootReducerState, time: Date) => {
 	times.isUVBPenetrating(state.times, time)
 };
+
+export const getCurrentAngle = (state: RootReducerState) => (
+	getCurrentTime(state) === null ? null : suncalc.getPosition(
+		getCurrentTime(state)!,
+		getLatitude(state),
+		getLongitude(state)
+	).altitude
+);

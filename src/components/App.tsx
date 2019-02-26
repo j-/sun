@@ -1,4 +1,5 @@
 import * as React from 'react';
+import AngleDisplay from '../containers/AngleDisplay';
 import CoordControls from './CoordControls';
 import DateControls from './DateControls';
 import Times from '../containers/Times';
@@ -6,6 +7,10 @@ import SunChart from '../containers/SunChart';
 
 const App: React.StatelessComponent = () => (
 	<div className="App">
+		<section className="mb-5">
+			<AngleDisplay />
+		</section>
+
 		<div className="card card-body mb-5">
 			<div className="row">
 				<section className="col-sm">
