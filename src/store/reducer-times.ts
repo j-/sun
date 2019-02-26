@@ -40,12 +40,14 @@ const updateTimes = (state: ReducerState): ReducerState => {
 	const times = suncalc.getTimes(new Date(date), latitude, longitude);
 	return {
 		...state,
+		/* tslint:disable:no-string-literal */
 		sunriseStart: isNaN(times.sunrise.getTime()) ? null : times.sunrise.toISOString(),
 		sunriseEnd: isNaN(times.sunriseEnd.getTime()) ? null : times.sunriseEnd.toISOString(),
 		sunsetStart: isNaN(times.sunsetStart.getTime()) ? null : times.sunsetStart.toISOString(),
 		sunsetEnd: isNaN(times.sunset.getTime()) ? null : times.sunset.toISOString(),
 		uvbStart: isNaN(times['uvbStart'].getTime()) ? null : times['uvbStart'].toISOString(),
 		uvbEnd: isNaN(times['uvbEnd'].getTime()) ? null : times['uvbEnd'].toISOString(),
+		/* tslint:enable:no-string-literal */
 	};
 };
 
