@@ -9,7 +9,7 @@
     "react": "^16.8.3",
     "react-container-dimensions": "^1.4.1",
     "react-dom": "^16.8.3",
-    "recharts": "^1.1.0",
+    "recharts": "^1.2.0",
     "redux-devtools-extension": "^2.13.2",
     "suncalc": "^1.8.0",
     "typescript": "^3.3.3333"
