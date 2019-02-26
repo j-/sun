@@ -47,13 +47,3 @@ ReactDOM.render(
 	document.getElementById('root') as HTMLElement
 );
 registerServiceWorker();
-
-import * as Suncalc from 'suncalc';
-
-const state = store.getState();
-const times = Suncalc.getTimes(new Date(), state.coords.latitude, state.coords.longitude);
-
-console.log('UVB Start', times['uvbStart']);
-console.log('UVB End', times['uvbEnd']);
-
-console.log('Current angle', Suncalc.getPosition(new Date(state.dateRange.currentTime as string), state.coords.latitude, state.coords.longitude).altitude * 180 / Math.PI);
