@@ -26,12 +26,12 @@ const App: React.StatelessComponent = () => (
 		</div>
 
 		<section className="mb-5">
-			<h2>Times</h2>
+			<h2 className="mb-3">Times</h2>
 			<Times />
 		</section>
 
 		<section className="mb-5">
-			<h2>Chart</h2>
+			<h2 className="mb-3">Chart</h2>
 			<SunChart />
 		</section>
 	</div>
