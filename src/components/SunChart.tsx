@@ -50,7 +50,7 @@ export default class SunChart extends React.Component<Props> {
 		}
 
 		const { startDate, endDate, currentTime, interval } = this.props;
-		let currentTimeReference;
+		let currentTimeReference: React.ReactChild;
 
 		if (currentTime && currentTime >= startDate && currentTime <= endDate) {
 			let x = currentTime.getHours();
