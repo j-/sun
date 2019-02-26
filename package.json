@@ -5,6 +5,7 @@
   "dependencies": {
     "@types/redux-devtools-extension": "^2.13.2",
     "@types/suncalc": "^1.8.0",
+    "bootstrap": "^4.3.1",
     "react": "^16.3.2",
     "react-dom": "^16.0.1",
     "recharts": "^1.4.1",
@@ -20,7 +21,6 @@
     "predeploy": "npm run build"
   },
   "devDependencies": {
-    "@blueprintjs/core": "^1.32.0",
     "@types/jest": "^21.1.2",
     "@types/node": "^8.0.33",
     "@types/react": "^16.3.18",

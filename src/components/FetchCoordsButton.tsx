@@ -6,11 +6,11 @@ export interface Props extends React.HTMLAttributes<HTMLButtonElement> {
 
 const FetchCoordsButton: React.StatelessComponent<Props> = (props) => (
 	<button
-		className="FetchCoordsButton pt-button pt-large"
+		className="FetchCoordsButton btn btn-secondary"
 		type="button"
 		{...props}
 	>
-		<span className="pt-icon-standard pt-icon-locate" /> Locate me
+		Locate me
 	</button>
 );
 

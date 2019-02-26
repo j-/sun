@@ -15,15 +15,15 @@ const DatePicker: React.StatelessComponent<Props> = ({
 }) => (
 	<div className="DatePicker pt-button-group pt-large">
 		<button
-			className="DatePicker-prev pt-button"
+			className="DatePicker-prev btn"
 			type="button"
 			onClick={onClickPrev}
 		>
-			<span className="pt-icon-standard pt-icon-arrow-left" />
+			&larr;
 		</button>
 
 		<button
-			className="DatePicker-today pt-button pt-intent-primary"
+			className="DatePicker-today btn btn-primary"
 			type="button"
 			onClick={onClickToday}
 			disabled={isToday === true}
@@ -32,11 +32,11 @@ const DatePicker: React.StatelessComponent<Props> = ({
 		</button>
 
 		<button
-			className="DatePicker-next pt-button"
+			className="DatePicker-next btn"
 			type="button"
 			onClick={onClickNext}
 		>
-			<span className="pt-icon-standard pt-icon-arrow-right pt-align-right" />
+			&rarr;
 		</button>
 	</div>
 );
