@@ -31,20 +31,4 @@ export const getLongitude = (state: ReducerState) => (
 	state.longitude
 );
 
-export const isNorth = (state: ReducerState) => (
-	getLatitude(state) >= 0
-);
-
-export const isEast = (state: ReducerState) => (
-	getLongitude(state) >= 0
-);
-
-export const isSouth = (state: ReducerState) => (
-	getLatitude(state) < 0
-);
-
-export const isWest = (state: ReducerState) => (
-	getLongitude(state) > 0
-);
-
 export default reducer;

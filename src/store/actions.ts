@@ -1,10 +1,6 @@
 import { Action, Dispatch } from 'redux';
+import { Coords } from '../coords';
 import { RootReducerState, getStartDate } from './index';
-
-export interface Coords {
-	latitude: number;
-	longitude: number;
-}
 
 export interface ActionSetCoords extends Action {
 	type: 'SetCoords';

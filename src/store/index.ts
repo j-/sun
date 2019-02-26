@@ -3,6 +3,13 @@ import * as coords from './reducer-coords';
 import * as fetchCoords from './reducer-fetch-coords';
 import * as dateRange from './reducer-date-range';
 
+import {
+	isNorth as isLatitudeNorth,
+	isEast as isLongitudeEast,
+	isSouth as isLatitudeSouth,
+	isWest as isLongitudeWest,
+} from '../coords';
+
 export interface RootReducerState {
 	coords: coords.ReducerState;
 	fetchCoords: fetchCoords.ReducerState;
@@ -24,19 +31,19 @@ export const getLongitude = (state: RootReducerState) => (
 );
 
 export const isNorth = (state: RootReducerState) => (
-	coords.isNorth(state.coords)
+	isLatitudeNorth(getLatitude(state))
 );
 
 export const isEast = (state: RootReducerState) => (
-	coords.isEast(state.coords)
+	isLongitudeEast(getLongitude(state))
 );
 
 export const isSouth = (state: RootReducerState) => (
-	coords.isSouth(state.coords)
+	isLatitudeSouth(getLatitude(state))
 );
 
 export const isWest = (state: RootReducerState) => (
-	coords.isWest(state.coords)
+	isLongitudeWest(getLongitude(state))
 );
 
 export const isFetching = (state: RootReducerState) => (
