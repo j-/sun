@@ -1,4 +1,4 @@
-import { connect, MapStateToProps, MapDispatchToProps } from 'react-redux';
+import { connect, MapDispatchToProps } from 'react-redux';
 import FetchCoordsButton from '../components/FetchCoordsButton';
 import { fetchCoords } from '../store/actions';
 
@@ -14,10 +14,6 @@ interface DispatchProps {
 	onClick: () => void;
 }
 
-const mapStateToProps: MapStateToProps<StateProps, OwnProps> = () => ({
-
-});
-
 const mapDispatchToProps: MapDispatchToProps<DispatchProps, OwnProps> = ({
 	onClick: fetchCoords,
 });
@@ -27,7 +23,7 @@ const mergeProps = (stateProps: StateProps, dispatchProps: DispatchProps) => (
 );
 
 export default connect<StateProps, DispatchProps, OwnProps>(
-	mapStateToProps,
+	null,
 	mapDispatchToProps,
 	mergeProps
 )(FetchCoordsButton);

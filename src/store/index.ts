@@ -84,3 +84,31 @@ export const hasDateRange = (state: RootReducerState) => (
 export const getCurrentTime = (state: RootReducerState) => (
 	dateRange.getCurrentTime(state.dateRange)
 );
+
+export const getSunriseStartTime = (state: RootReducerState) => (
+	times.getSunriseStartTime(state.times)
+);
+
+export const getSunriseEndTime = (state: RootReducerState) => (
+	times.getSunriseEndTime(state.times)
+);
+
+export const getSunsetStartTime = (state: RootReducerState) => (
+	times.getSunsetStartTime(state.times)
+);
+
+export const getSunsetEndTime = (state: RootReducerState) => (
+	times.getSunsetEndTime(state.times)
+);
+
+export const getUVBStartTime = (state: RootReducerState) => (
+	times.getUVBStartTime(state.times)
+);
+
+export const getUVBEndTime = (state: RootReducerState) => (
+	times.getUVBEndTime(state.times)
+);
+
+export const isUVBPenetrating = (state: RootReducerState, time: Date) => {
+	times.isUVBPenetrating(state.times, time)
+};

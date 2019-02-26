@@ -1,6 +1,7 @@
 import * as React from 'react';
 import CoordControls from './CoordControls';
 import DateControls from './DateControls';
+import Times from '../containers/Times';
 import SunChart from '../containers/SunChart';
 
 const App: React.StatelessComponent = () => (
@@ -8,6 +9,11 @@ const App: React.StatelessComponent = () => (
 		<section className="mb-5">
 			<h2>Coordinates</h2>
 			<CoordControls />
+		</section>
+
+		<section className="mb-5">
+			<h2>Times</h2>
+			<Times />
 		</section>
 
 		<section className="mb-5">
