@@ -49,8 +49,6 @@ registerServiceWorker();
 
 import * as Suncalc from 'suncalc';
 
-Suncalc.addTime(50, 'uvbStart', 'uvbEnd');
-
 const state = store.getState();
 const times = Suncalc.getTimes(new Date(), state.coords.latitude, state.coords.longitude);
 

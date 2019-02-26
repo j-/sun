@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import * as coords from './reducer-coords';
 import * as fetchCoords from './reducer-fetch-coords';
 import * as dateRange from './reducer-date-range';
+import * as times from './reducer-times';
 
 import {
 	isNorth as isLatitudeNorth,
@@ -14,12 +15,14 @@ export interface RootReducerState {
 	coords: coords.ReducerState;
 	fetchCoords: fetchCoords.ReducerState;
 	dateRange: dateRange.ReducerState;
+	times: times.ReducerState;
 }
 
 export default combineReducers<RootReducerState>({
 	coords: coords.default,
 	fetchCoords: fetchCoords.default,
 	dateRange: dateRange.default,
+	times: times.default,
 });
 
 export const getLatitude = (state: RootReducerState) => (
