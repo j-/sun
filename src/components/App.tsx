@@ -31,7 +31,7 @@ const App: React.StatelessComponent = () => (
 		</section>
 
 		<section className="mb-5">
-			<h2 className="mb-3">Chart</h2>
+			<h2 className="mb-3">Sun position</h2>
 			<SunChart />
 		</section>
 	</div>
