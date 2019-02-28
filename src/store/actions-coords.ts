@@ -39,7 +39,7 @@ export const isActionFetchCoords = (action: Action): action is ActionFetchCoords
 	action.type === 'FetchCoords'
 );
 
-export const fetchCoords = () => (dispatch: Dispatch<Action>) => {
+export const fetchCoords = () => (dispatch: Dispatch<ActionFetchCoords | ActionSetCoords | ActionSetCoordsError>) => {
 	dispatch<ActionFetchCoords>({ type: 'FetchCoords' });
 	const successHandler = ({ coords }: { coords: Coords }) => {
 		dispatch<ActionSetCoords>(setCoords(coords));

@@ -21,7 +21,7 @@ export const setDateRange = (startDate: Date, endDate: Date): ActionSetDateRange
 	},
 });
 
-export const gotoToday = () => (dispatch: Dispatch<Action>) => {
+export const gotoToday = () => (dispatch: Dispatch<ActionSetDateRange>) => {
 	const now = new Date();
 
 	const startDate = new Date(now);
@@ -39,7 +39,7 @@ export const gotoToday = () => (dispatch: Dispatch<Action>) => {
 	dispatch<ActionSetDateRange>(setDateRange(startDate, endDate));
 };
 
-export const gotoPrevDay = () => (dispatch: Dispatch<Action>, getState: () => RootReducerState) => {
+export const gotoPrevDay = () => (dispatch: Dispatch<ActionSetDateRange>, getState: () => RootReducerState) => {
 	const now = getStartDate(getState());
 	if (!now) {
 		return;
@@ -62,7 +62,7 @@ export const gotoPrevDay = () => (dispatch: Dispatch<Action>, getState: () => Ro
 	dispatch<ActionSetDateRange>(setDateRange(startDate, endDate));
 };
 
-export const gotoNextDay = () => (dispatch: Dispatch<Action>, getState: () => RootReducerState) => {
+export const gotoNextDay = () => (dispatch: Dispatch<ActionSetDateRange>, getState: () => RootReducerState) => {
 	const now = getStartDate(getState());
 	if (!now) {
 		return;
