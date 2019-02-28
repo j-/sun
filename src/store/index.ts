@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
 import * as suncalc from 'suncalc';
 import * as coords from './reducer-coords';
-import * as fetchCoords from './reducer-fetch-coords';
 import * as dateRange from './reducer-date-range';
 import * as times from './reducer-times';
 
@@ -14,14 +13,12 @@ import {
 
 export interface RootReducerState {
 	coords: coords.ReducerState;
-	fetchCoords: fetchCoords.ReducerState;
 	dateRange: dateRange.ReducerState;
 	times: times.ReducerState;
 }
 
 export default combineReducers<RootReducerState>({
 	coords: coords.default,
-	fetchCoords: fetchCoords.default,
 	dateRange: dateRange.default,
 	times: times.default,
 });
@@ -51,19 +48,19 @@ export const isWest = (state: RootReducerState) => (
 );
 
 export const isLocated = (state: RootReducerState) => (
-	fetchCoords.isLocated(state.fetchCoords)
+	coords.isLocated(state.coords)
 );
 
 export const isFetching = (state: RootReducerState) => (
-	fetchCoords.isFetching(state.fetchCoords)
+	coords.isFetching(state.coords)
 );
 
 export const hasError = (state: RootReducerState) => (
-	fetchCoords.hasError(state.fetchCoords)
+	coords.hasError(state.coords)
 );
 
 export const getErrorMessage = (state: RootReducerState) => (
-	fetchCoords.getErrorMessage(state.fetchCoords)
+	coords.getErrorMessage(state.coords)
 );
 
 export const getStartDate = (state: RootReducerState) => (
