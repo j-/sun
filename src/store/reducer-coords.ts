@@ -37,6 +37,7 @@ const reducer: Reducer<ReducerState> = (state = DEFAULT_STATE, action) => {
 	if (isActionFetchCoords(action)) {
 		return {
 			...state,
+			isLocated: false,
 			isFetching: true,
 			errorMessage: null,
 		};
