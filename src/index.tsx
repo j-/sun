@@ -32,7 +32,7 @@ const ROUND_TO_MINUTES = 5;
 
 const updateTime = () => {
 	const now = new Date();
-	now.setMinutes(Math.round(now.getMinutes() * ROUND_TO_MINUTES) / ROUND_TO_MINUTES);
+	now.setMinutes(Math.round(now.getMinutes() / ROUND_TO_MINUTES) * ROUND_TO_MINUTES);
 	now.setSeconds(0);
 	now.setMilliseconds(0);
 	store.dispatch(
