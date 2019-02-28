@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
+import * as suncalc from 'suncalc';
 import SunChart from '../components/SunChart';
-import { getSunAltitude } from '../sun-altitude';
 
 import {
 	RootReducerState,
@@ -28,11 +28,11 @@ const mapStateToProps = (state: RootReducerState): StateProps => ({
 	currentTime: getCurrentTime(state) as Date,
 	interval: 1000 * 60 * 15, // 15 mins
 	getAltitude: (date: Date) => (
-		getSunAltitude(
+		suncalc.getPosition(
 			date,
 			getLatitude(state),
 			getLongitude(state),
-		)
+		).altitude * 180 / Math.PI
 	),
 });
 
