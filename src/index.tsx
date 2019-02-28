@@ -28,17 +28,20 @@ store.dispatch(
 	gotoToday()
 );
 
-const now = new Date();
-
 const ROUND_TO_MINUTES = 5;
-now.setMinutes(Math.round(now.getMinutes() * ROUND_TO_MINUTES) / ROUND_TO_MINUTES);
-now.setSeconds(0);
-now.setMilliseconds(0);
 
-// Use now as a default
-store.dispatch(
-	setCurrentTime(now)
-);
+const updateTime = () => {
+	const now = new Date();
+	now.setMinutes(Math.round(now.getMinutes() * ROUND_TO_MINUTES) / ROUND_TO_MINUTES);
+	now.setSeconds(0);
+	now.setMilliseconds(0);
+	store.dispatch(
+		setCurrentTime(now)
+	);
+};
+
+updateTime(); // Set current time immediately
+setInterval(updateTime, 1000 * 60); // Update every minue
 
 ReactDOM.render(
 	<StoreProvider store={store}>
