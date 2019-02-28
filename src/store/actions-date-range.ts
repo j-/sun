@@ -1,6 +1,9 @@
 import { Action, Dispatch } from 'redux';
 import { RootReducerState, getStartDate } from './index';
 
+const HOUR_DAY_START = 6;
+const HOUR_DAY_END = 20;
+
 export interface ActionSetDateRange extends Action {
 	type: 'SetDateRange';
 	data: {
@@ -25,13 +28,13 @@ export const gotoToday = () => (dispatch: Dispatch<ActionSetDateRange>) => {
 	const now = new Date();
 
 	const startDate = new Date(now);
-	startDate.setHours(6);
+	startDate.setHours(HOUR_DAY_START);
 	startDate.setMinutes(0);
 	startDate.setSeconds(0);
 	startDate.setMilliseconds(0);
 
 	const endDate = new Date(now);
-	endDate.setHours(20);
+	endDate.setHours(HOUR_DAY_END);
 	endDate.setMinutes(0);
 	endDate.setSeconds(0);
 	endDate.setMilliseconds(0);
@@ -48,13 +51,13 @@ export const gotoPrevDay = () => (dispatch: Dispatch<ActionSetDateRange>, getSta
 	now.setDate(now.getDate() - 1);
 
 	const startDate = new Date(now);
-	startDate.setHours(6);
+	startDate.setHours(HOUR_DAY_START);
 	startDate.setMinutes(0);
 	startDate.setSeconds(0);
 	startDate.setMilliseconds(0);
 
 	const endDate = new Date(now);
-	endDate.setHours(20);
+	endDate.setHours(HOUR_DAY_END);
 	endDate.setMinutes(0);
 	endDate.setSeconds(0);
 	endDate.setMilliseconds(0);
@@ -71,13 +74,13 @@ export const gotoNextDay = () => (dispatch: Dispatch<ActionSetDateRange>, getSta
 	now.setDate(now.getDate() + 1);
 
 	const startDate = new Date(now);
-	startDate.setHours(6);
+	startDate.setHours(HOUR_DAY_START);
 	startDate.setMinutes(0);
 	startDate.setSeconds(0);
 	startDate.setMilliseconds(0);
 
 	const endDate = new Date(now);
-	endDate.setHours(20);
+	endDate.setHours(HOUR_DAY_END);
 	endDate.setMinutes(0);
 	endDate.setSeconds(0);
 	endDate.setMilliseconds(0);
