@@ -13,9 +13,9 @@ const DatePicker: React.StatelessComponent<Props> = ({
 	onClickToday,
 	isToday,
 }) => (
-	<div className="DatePicker">
+	<div className="DatePicker btn-group">
 		<button
-			className="DatePicker-prev btn"
+			className="DatePicker-prev btn border-primary"
 			type="button"
 			onClick={onClickPrev}
 		>
@@ -32,7 +32,7 @@ const DatePicker: React.StatelessComponent<Props> = ({
 		</button>
 
 		<button
-			className="DatePicker-next btn"
+			className="DatePicker-next btn border-primary"
 			type="button"
 			onClick={onClickNext}
 		>
