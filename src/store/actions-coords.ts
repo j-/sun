@@ -31,6 +31,18 @@ export const setCoordsError = (message: string): ActionSetCoordsError => ({
 	data: { message },
 });
 
+export interface ActionClearCoordsError extends Action {
+	type: 'ClearCoordsError';
+}
+
+export const isActionClearCoordsError = (action: Action): action is ActionClearCoordsError => (
+	action.type === 'ClearCoordsError'
+);
+
+export const clearCoordsError = (): ActionClearCoordsError => ({
+	type: 'ClearCoordsError',
+});
+
 export interface ActionFetchCoords extends Action {
 	type: 'FetchCoords';
 }

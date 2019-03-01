@@ -5,6 +5,7 @@ import {
 	isActionFetchCoords,
 	isActionSetCoordsError,
 } from './actions';
+import { isActionClearCoordsError } from './actions-coords';
 
 export interface ReducerState {
 	latitude: number;
@@ -48,6 +49,13 @@ const reducer: Reducer<ReducerState> = (state = DEFAULT_STATE, action) => {
 			...state,
 			isFetching: false,
 			errorMessage: action.data.message,
+		};
+	}
+
+	if (isActionClearCoordsError(action)) {
+		return {
+			...state,
+			errorMessage: null,
 		};
 	}
 
