@@ -15,9 +15,11 @@ const FetchCoordsState: React.StatelessComponent<Props> = ({
 }) => (
 	isLocated ? null : (
 		<div className="FetchCoordsState">
-			{!isFetching && !hasError && <span>&zwj;</span>}
-			{isFetching && <em>Locating&hellip;</em>}
-			{hasError && <strong>Error: {errorMessage}</strong>}
+			<p>
+				{!isFetching && !hasError && <span>&zwj;</span>}
+				{isFetching && <em>Locating&hellip;</em>}
+				{hasError && <span>Error: {errorMessage}</span>}
+			</p>
 		</div>
 	)
 );
