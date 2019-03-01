@@ -14,6 +14,7 @@ export interface ReducerState {
 	longitude: number | null;
 	sunriseStart: string | null;
 	sunriseEnd: string | null;
+	solarNoon: string | null;
 	sunsetStart: string | null;
 	sunsetEnd: string | null;
 	uvbStart: string | null;
@@ -26,6 +27,7 @@ const DEFAULT_STATE: ReducerState = {
 	longitude: null,
 	sunriseStart: null,
 	sunriseEnd: null,
+	solarNoon: null,
 	sunsetStart: null,
 	sunsetEnd: null,
 	uvbStart: null,
@@ -43,6 +45,7 @@ const updateTimes = (state: ReducerState): ReducerState => {
 		/* tslint:disable:no-string-literal */
 		sunriseStart: isNaN(times.sunrise.getTime()) ? null : times.sunrise.toISOString(),
 		sunriseEnd: isNaN(times.sunriseEnd.getTime()) ? null : times.sunriseEnd.toISOString(),
+		solarNoon: isNaN(times.solarNoon.getTime()) ? null : times.solarNoon.toISOString(),
 		sunsetStart: isNaN(times.sunsetStart.getTime()) ? null : times.sunsetStart.toISOString(),
 		sunsetEnd: isNaN(times.sunset.getTime()) ? null : times.sunset.toISOString(),
 		uvbStart: isNaN(times['uvbStart'].getTime()) ? null : times['uvbStart'].toISOString(),
@@ -88,6 +91,10 @@ export const getSunriseStartTime = (state: ReducerState) => (
 
 export const getSunriseEndTime = (state: ReducerState) => (
 	state.sunriseEnd ? new Date(state.sunriseEnd) : null
+);
+
+export const getSolarNoonTime = (state: ReducerState) => (
+	state.solarNoon ? new Date(state.solarNoon) : null
 );
 
 export const getSunsetStartTime = (state: ReducerState) => (

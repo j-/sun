@@ -95,6 +95,10 @@ export const getSunriseEndTime = (state: RootReducerState) => (
 	times.getSunriseEndTime(state.times)
 );
 
+export const getSolarNoonTime = (state: RootReducerState) => (
+	times.getSolarNoonTime(state.times)
+);
+
 export const getSunsetStartTime = (state: RootReducerState) => (
 	times.getSunsetStartTime(state.times)
 );
