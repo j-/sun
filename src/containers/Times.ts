@@ -5,6 +5,7 @@ import {
 	RootReducerState,
 	getSunriseStartTime,
 	getSunriseEndTime,
+	getSolarNoonTime,
 	getSunsetStartTime,
 	getSunsetEndTime,
 	getUVBStartTime,
@@ -14,6 +15,7 @@ import {
 interface StateProps {
 	sunriseStart: Date | null;
 	sunriseEnd: Date | null;
+	solarNoon: Date | null;
 	sunsetStart: Date | null;
 	sunsetEnd: Date | null;
 	uvbStart: Date | null;
@@ -23,6 +25,7 @@ interface StateProps {
 const mapStateToProps: MapStateToProps<StateProps, {}, RootReducerState> = (state) => ({
 	sunriseStart: getSunriseStartTime(state),
 	sunriseEnd: getSunriseEndTime(state),
+	solarNoon: getSolarNoonTime(state),
 	sunsetStart: getSunsetStartTime(state),
 	sunsetEnd: getSunsetEndTime(state),
 	uvbStart: getUVBStartTime(state),
