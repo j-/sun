@@ -13,12 +13,12 @@ const App: React.StatelessComponent = () => (
 
 		<div className="card card-body mb-5">
 			<div className="row">
-				<section className="col-sm">
+				<section className="col-md">
 					<h2>Location</h2>
 					<CoordControls />
 				</section>
 
-				<section className="col-sm">
+				<section className="col-md">
 					<h2>Date</h2>
 					<DateControls />
 				</section>
