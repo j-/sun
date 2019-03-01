@@ -7,7 +7,7 @@ export interface Props {
 const CurrentDate: React.StatelessComponent<Props> = ({ value }) => (
 	value ? (
 		<div className="CurrentDate list-group list-group-horizontal">
-			<time className="list-group-item" dateTime={value.toISOString()}>
+			<time className="list-group-item flex-grow-1" dateTime={value.toISOString()}>
 				{value.toDateString()}
 			</time>
 		</div>

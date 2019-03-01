@@ -15,10 +15,10 @@ const Coords: React.StatelessComponent<Props> = ({
 	includeSeconds,
 }) => (
 	<div className="Coords list-group list-group-horizontal mb-3">
-		<li className="Coords-latitude list-group-item">
+		<li className="Coords-latitude list-group-item flex-grow-1">
 			{formatLatitude(latitude, includeMinutes, includeSeconds)}
 		</li>
-		<li className="Coords-longitude list-group-item">
+		<li className="Coords-longitude list-group-item flex-grow-1">
 			{formatLongitude(longitude, includeMinutes, includeSeconds)}
 		</li>
 	</div>
