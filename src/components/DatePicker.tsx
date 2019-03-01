@@ -13,7 +13,7 @@ const DatePicker: React.StatelessComponent<Props> = ({
 	onClickToday,
 	isToday,
 }) => (
-	<div className="DatePicker pt-button-group pt-large">
+	<div className="DatePicker">
 		<button
 			className="DatePicker-prev btn"
 			type="button"
