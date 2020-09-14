@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { formatLatitude, formatLongitude } from '../format-degrees';
-import './Coords.css';
 
 export interface Props {
 	latitude: number;
@@ -15,14 +14,13 @@ const Coords: React.StatelessComponent<Props> = ({
 	includeMinutes,
 	includeSeconds,
 }) => (
-	<div className="Coords">
-		<span className="Coords-latitude">
+	<div className="Coords list-group list-group-horizontal mb-3">
+		<li className="Coords-latitude list-group-item flex-grow-1">
 			{formatLatitude(latitude, includeMinutes, includeSeconds)}
-		</span>
-		<br />
-		<span className="Coords-longitude">
+		</li>
+		<li className="Coords-longitude list-group-item flex-grow-1">
 			{formatLongitude(longitude, includeMinutes, includeSeconds)}
-		</span>
+		</li>
 	</div>
 );
 

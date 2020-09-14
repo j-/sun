@@ -1,14 +1,26 @@
 import { Reducer } from 'redux';
-import { isActionSetCoords } from './actions';
+
+import {
+	isActionSetCoords,
+	isActionFetchCoords,
+	isActionSetCoordsError,
+} from './actions';
+import { isActionClearCoordsError } from './actions-coords';
 
 export interface ReducerState {
 	latitude: number;
 	longitude: number;
+	isLocated: boolean;
+	isFetching: boolean;
+	errorMessage: string | null;
 }
 
 const DEFAULT_STATE: ReducerState = {
 	latitude: 0,
 	longitude: 0,
+	isLocated: false,
+	isFetching: false,
+	errorMessage: null,
 };
 
 const reducer: Reducer<ReducerState> = (state = DEFAULT_STATE, action) => {
@@ -17,6 +29,33 @@ const reducer: Reducer<ReducerState> = (state = DEFAULT_STATE, action) => {
 			...state,
 			latitude: action.data.latitude,
 			longitude: action.data.longitude,
+			isLocated: true,
+			isFetching: false,
+			errorMessage: null,
+		};
+	}
+
+	if (isActionFetchCoords(action)) {
+		return {
+			...state,
+			isLocated: false,
+			isFetching: true,
+			errorMessage: null,
+		};
+	}
+
+	if (isActionSetCoordsError(action)) {
+		return {
+			...state,
+			isFetching: false,
+			errorMessage: action.data.message,
+		};
+	}
+
+	if (isActionClearCoordsError(action)) {
+		return {
+			...state,
+			errorMessage: null,
 		};
 	}
 
@@ -31,20 +70,20 @@ export const getLongitude = (state: ReducerState) => (
 	state.longitude
 );
 
-export const isNorth = (state: ReducerState) => (
-	getLatitude(state) >= 0
+export const isLocated = (state: ReducerState) => (
+	state.isLocated
 );
 
-export const isEast = (state: ReducerState) => (
-	getLongitude(state) >= 0
+export const isFetching = (state: ReducerState) => (
+	state.isFetching
 );
 
-export const isSouth = (state: ReducerState) => (
-	getLatitude(state) < 0
+export const hasError = (state: ReducerState) => (
+	state.errorMessage !== null
 );
 
-export const isWest = (state: ReducerState) => (
-	getLongitude(state) > 0
+export const getErrorMessage = (state: ReducerState) => (
+	state.errorMessage
 );
 
 export default reducer;

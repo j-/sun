@@ -32,7 +32,7 @@ const getMidnightAfter = (input: Date): Date => {
 	return output;
 };
 
-const mapStateToProps: MapStateToProps<StateProps, OwnProps> = (state: RootReducerState): StateProps => {
+const mapStateToProps: MapStateToProps<StateProps, OwnProps, RootReducerState> = (state): StateProps => {
 	const currentTime = getCurrentTime(state);
 	const startDate = getStartDate(state);
 	const endDate = getEndDate(state);

@@ -1,4 +1,6 @@
 import * as React from 'react';
+import FetchCoordsFetchingState from './FetchCoordsFetchingState';
+import FetchCoordsErrorState from './FetchCoordsErrorState';
 
 export interface Props {
 	isFetching: boolean;
@@ -12,8 +14,8 @@ const FetchCoordsState: React.StatelessComponent<Props> = ({
 	errorMessage
 }) => (
 	<div className="FetchCoordsState">
-		{isFetching && <em>Locating&hellip;</em>}
-		{hasError && <strong>Error: {errorMessage}</strong>}
+		{isFetching && <FetchCoordsFetchingState />}
+		{hasError && <FetchCoordsErrorState errorMessage={errorMessage!} />}
 	</div>
 );
 

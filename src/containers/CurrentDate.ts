@@ -10,7 +10,7 @@ interface StateProps {
 	value?: Date | null;
 }
 
-const mapStateToProps: MapStateToProps<StateProps, OwnProps> = (state: RootReducerState) => ({
+const mapStateToProps: MapStateToProps<StateProps, OwnProps, RootReducerState> = (state) => ({
 	value: getStartDate(state),
 });
 

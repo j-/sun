@@ -4,10 +4,15 @@
   "private": true,
   "dependencies": {
     "@types/redux-devtools-extension": "^2.13.2",
-    "react": "^16.3.2",
-    "react-dom": "^16.0.1",
-    "recharts": "^1.4.1",
-    "redux-devtools-extension": "^2.13.2"
+    "@types/suncalc": "^1.8.0",
+    "bootstrap": "^4.3.1",
+    "react": "^16.8.3",
+    "react-container-dimensions": "^1.4.1",
+    "react-dom": "^16.8.3",
+    "recharts": "^1.2.0",
+    "redux-devtools-extension": "^2.13.2",
+    "suncalc": "^1.8.0",
+    "typescript": "^3.3.3333"
   },
   "scripts": {
     "start": "react-scripts-ts start",
@@ -18,16 +23,15 @@
     "predeploy": "npm run build"
   },
   "devDependencies": {
-    "@blueprintjs/core": "^1.32.0",
     "@types/jest": "^21.1.2",
     "@types/node": "^8.0.33",
-    "@types/react": "^16.3.18",
-    "@types/react-dom": "^16.0.9",
-    "@types/react-redux": "^5.0.10",
-    "@types/recharts": "^1.1.1",
+    "@types/react": "^16.8.5",
+    "@types/react-dom": "^16.8.2",
+    "@types/react-redux": "^6.0.13",
+    "@types/recharts": "^1.1.13",
     "gh-pages": "^1.0.0",
     "react-addons-css-transition-group": "^15.6.2",
-    "react-redux": "^5.0.6",
+    "react-redux": "^6.0.1",
     "react-scripts-ts": "^2.7.0",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"

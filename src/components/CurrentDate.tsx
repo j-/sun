@@ -6,9 +6,11 @@ export interface Props {
 
 const CurrentDate: React.StatelessComponent<Props> = ({ value }) => (
 	value ? (
-		<time dateTime={value.toISOString()}>
-			{value.toDateString()}
-		</time>
+		<div className="CurrentDate list-group list-group-horizontal">
+			<time className="list-group-item flex-grow-1 rounded" dateTime={value.toISOString()}>
+				{value.toDateString()}
+			</time>
+		</div>
 	) : null
 );
 
